@@ -11,7 +11,7 @@ func main() {
 	fmt.Println("number2 == ", number2)
 	fmt.Println("number3 == ", number3)
 	fmt.Println("number4 == ", number4)
-	append(number2, 5)
+	c := append(number2, 5)
 	fmt.Println("number2 == ", number2)
 	fmt.Println("c == ", c)
 
