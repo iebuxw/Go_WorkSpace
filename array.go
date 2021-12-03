@@ -16,4 +16,11 @@ func main() {
 		fmt.Printf("Element[%d] = %d\n", j, n[j])
 	}
 	fmt.Println("wang di xin ku kan yi xia")
+	fmt.Println(n)
+
+	//foreach
+	m := [...]string{"aaaa", "bbbb", "ccc"} //数组
+	for key, value := range m {
+		fmt.Println(key, "=>", value)
+	}
 }

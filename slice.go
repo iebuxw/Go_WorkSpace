@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8} //声明一个未指定大小的数组来定义切片
 	number2 := numbers[1:6]
 	number3 := numbers[:3]
 	number4 := numbers[3:]
