@@ -23,4 +23,9 @@ func main() {
 	for key, value := range m {
 		fmt.Println(key, "=>", value)
 	}
+
+	//忽略索引
+	for _, value := range m {
+		fmt.Println(value)
+	}
 }
