@@ -17,5 +17,5 @@ func main() {
 
 	//从管道读取数据
 	num2 := <-intC
-	fmt.Println(num2)
+	fmt.Println(num2) //输出10
 }
