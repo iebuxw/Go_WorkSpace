@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+//声明数组
+//初始化数组
+//访问数组
 func main() {
 	var n [10]int /* n 是一个长度为 10 的数组 */
 	var i, j int
@@ -28,4 +31,29 @@ func main() {
 	for _, value := range m {
 		fmt.Println(value)
 	}
+
+	//数组函数
+	//count
+	//in_array
+	//implode
+	//array_push
+	//array_shift
+	//array_unshift
+	//array_pop
+	//array_map
+	//array_diff
+	//array_intersect
+	//array_col
+	//array_merge
+	//array_combine
+	//array_multisort
+	//array_sum
+	//array_unique
+	//isset
+	//array_values
+	//array_keys
+	//array_search
+	//array_slice
+	//array_filter
+	//sort
 }
