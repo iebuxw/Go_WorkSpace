@@ -20,6 +20,11 @@ main函数必须在main包，同一个文件夹下不能有多个main包
 	报错：no required module provides package hello.go: go.mod file not found in current directory or any parent directory; see 'go help modules'
 	解决：go env -w GO111MODULE=auto
 
+	go root：
+	1、重装go到d盘
+	2、加版本号 http://t.zoukankan.com/smartisn-p-15737839.html
+	3、选择go sdk然后重启ide
+
 注意事项
 	当标识符（包括常量、变量、类型、函数名、结构字段等等）以一个大写字母开头，如：Group1，则为public，小写为protected
 	注意： { 不能单独放在一行
