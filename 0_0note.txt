@@ -207,3 +207,8 @@ go没有继承概念
     1、编译命令要在$GO_PATH目录下执行
     2、编译是编译main包
     3、-o是换exe的路径、名称
+
+go传参数启动服务
+go run main.go -redis 192.168.99.233:6379
+
+go加载第三方包：go mod tidy
