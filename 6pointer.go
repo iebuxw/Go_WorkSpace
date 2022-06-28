@@ -4,6 +4,7 @@ package main
 import "fmt"
 
 //main 函数是每一个可执行程序所必须包含的
+//指针类型名: *type
 func main() {
 	//定义指针
 	//指针赋值

@@ -40,8 +40,11 @@ main函数必须在main包，同一个文件夹下不能有多个main包
 
     go严格区分大小写
 
+    var的用法：var identifier type
+    make的用法：make(type, length, capacity)//capacity就是容量，警戒值
+
 局部变量(函数内)：在函数体内声明的变量称之为局部变量
-	//这种不带声明格式的(:=)只能在函数体中出现
+	//这种不带声明格式的(:=)只能在函数体中出现（也就是只能声明局部变量）
 	//g, h := 123, "hello"
 
 全局变量(函数外)：在函数体外声明的变量称之为全局变量，全局变量可以在任何函数中使用
@@ -109,6 +112,15 @@ for循环
 	func swap(x, y string) (string, string) {
 	   return y, x
 	}
+
+1.值类型:int系列、float系列、bool、string、数组和结构体
+2.引用类型:指针、slice切片、map、管道chan、interface接口等   //引用类型如果用=，改变一个其他都改变
+
+各int类型的取值范围为：
+    int8: -128 ~ 127                                    (tinyint)
+    int16: -32768 ~ 32767                               (smallint)
+    int32: -2147483648 ~ 2147483647                     (int)
+    int64: -9223372036854775808 ~ 9223372036854775807   (bigint)
 
 字符串：
     字符串需要用双引号
@@ -202,3 +214,10 @@ go没有继承概念
     1、编译命令要在$GO_PATH目录下执行
     2、编译是编译main包
     3、-o是换exe的路径、名称
+
+类型转换
+    1、type(v)
+    2、str := strconv.Itoa(12)
+    3、go中的类型判断则是判断一个变量是否属于某一种类型
+        var a interface{} = 10
+         _,isInt := a.(int) // 进行类型的断言的变量必须是空接口
