@@ -232,3 +232,14 @@ go加载第三方包：go mod tidy
     3、go中的类型判断则是判断一个变量是否属于某一种类型
         var a interface{} = 10
          _,isInt := a.(int) // 进行类型的断言的变量必须是空接口
+
+//初始化
+    var a int32
+    var a string
+    var a [5]int
+    var a []int
+    var a map[string] int
+    var a Struct3
+    var a *int
+    var a chan int
+    var a func(string) int
