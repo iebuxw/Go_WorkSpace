@@ -248,3 +248,17 @@ go加载第三方包：go mod tidy
 defer
 defer是go中一种延迟调用机制，defer后面的函数只有在当前函数执行完毕后才能执行，通常用于释放资源
 defer遵循先进后出的原则，类似于栈的结构。
+
+go mod的使用
+	gopath是D:\go_code\，则在Go_WorkSpace目录下执行
+	1、go mod init Go_WorkSpace
+	2、编写配置文件
+	3、执行go get命令，拉取依赖库：
+	go mod tidy //拉取缺少的模块，移除不用的模块。
+
+go mod的禁用
+	set GO111MODULE=off
+	或者
+	删掉go mod的文件然后执行set GO111MODULE=auto
+
+go mode和go path会有冲突，用go path的时候需要禁用掉go mode
