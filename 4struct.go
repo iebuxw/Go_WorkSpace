@@ -48,6 +48,8 @@ func main() {
 	// 创建一个新的结构体
 	b := Books{"Go 语言", "www.runoob.com", "Go 语言教程", 6495407} //推荐定义方式
 	fmt.Println(b)
+	fmt.Printf("22%v\n", b)
+	fmt.Printf("333333%#v\n", b) //打印结构体的详细信息
 
 	// 也可以使用 key => value 格式
 	fmt.Println(Books{
