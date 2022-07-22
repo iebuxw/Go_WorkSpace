@@ -14,7 +14,7 @@ main函数必须在main包，同一个文件夹下不能有多个main包
     2、Printf：格式化输出，不可以输出整形变量和整形
         %v：打印结构体时，会添加字段名
         %t：布尔值
-        %q：加引号
+        %q：如果是字符串会加引号，看得清楚
 
 报错相关
 	报错：no required module provides package hello.go: go.mod file not found in current directory or any parent directory; see 'go help modules'
@@ -209,6 +209,10 @@ go没有继承概念
      要点:
         1、只能放指定数据类型
         2、放满了不能放
+     锁：
+        1、放满了没人取
+        2、取时候是空的
+        3、关闭的话读取是不会阻塞的
 
 包的引入：
     1、方法名需要首字母大写，小写认为是private，引入不进来的
@@ -262,3 +266,11 @@ go mod的禁用
 	删掉go mod的文件然后执行set GO111MODULE=auto
 
 go mode和go path会有冲突，用go path的时候需要禁用掉go mode
+
+数据类型转换：int64()直接转
+    数字：
+        1、无论是低精度到高精度都要强转
+        2、高精度转到低精度，如果溢出不会报错，按溢出处理，取最大值
+    字符串:
+        1、用sprintf
+        2、用strconv函数

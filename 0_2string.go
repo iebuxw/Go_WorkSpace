@@ -74,12 +74,15 @@ func main() {
 	fmt.Println("var2 len= ", len(var2))
 	//strconv
 	//字符串转整数
-	int1, error2 := strconv.Atoi(var2)
-	fmt.Println(int1, error2)
+	int1, error2 := strconv.Atoi(var2)        //方式一
+	var11, _ := strconv.ParseInt(var2, 10, 0) //方式二10代表基准是10进制，0代表转成int
+	//方式三 sprintf
+	fmt.Println(int1, error2, var11)
 	//整数转字符串
 	var4 := 1000
 	var5 := strconv.Itoa(var4)
-	fmt.Println(var5)
+	var10 := strconv.FormatInt(int64(var4), 10) //这种也可以 Itoa 等价 FormatInt(int64(var4), 10)
+	fmt.Println(var5, var10)
 	//字符串是否包含
 	var6 := strings.Contains("wokkkdddssss", "ok")
 	fmt.Println(var6)
