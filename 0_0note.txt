@@ -12,9 +12,13 @@ main函数必须在main包，同一个文件夹下不能有多个main包
     1、输出并换行：fmt.Println，打印多个会加空格
     2、Sprintf：格式化并返回变量
     2、Printf：格式化输出，不可以输出整形变量和整形
-        %v：打印结构体时，会添加字段名
         %t：布尔值
         %q：如果是字符串会加引号，看得清楚
+        %v      相应值的默认格式。            Printf("%v", people)   {zhangsan}，
+        %+v     打印结构体时，会添加字段名     Printf("%+v", people)  {Name:zhangsan}
+        %#v     相应值的Go语法表示            Printf("#v", people)   main.Human{Name:"zhangsan"}
+        %T      相应值的类型的Go语法表示       Printf("%T", people)   main.Human
+        %%      字面上的百分号，并非值的占位符  Printf("%%")            %
 
 报错相关
 	报错：no required module provides package hello.go: go.mod file not found in current directory or any parent directory; see 'go help modules'

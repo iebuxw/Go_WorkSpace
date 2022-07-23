@@ -7,6 +7,15 @@ import (
 //通道（channel）是用来传递数据的一个数据结构。管道的本质是一个队列
 //作用：协程之间通信
 //var 变量名 chan 数据类型
+/*
+知识点：
+	1、chan的缓冲与无缓冲，无缓冲我把他认为是只有一个缓冲
+    2、chan的关闭，关闭后只能读不能写
+    3、chan的range迭代，阻塞迭代直到关闭
+    4、单向队列，收和发分开
+    5、chan与select，作用是可以监听多个chan
+    6、阻塞的条件：1、未关闭写写满了；2、未关闭读完了
+*/
 
 //var intB chan int
 var intB = make(chan int, 50)
@@ -63,7 +72,7 @@ func testData() {
 		close(c) //为什么不加close会死锁不知道
 	}()
 
-	//可以用range简写
+	//可以用for...range简写，下面有例子
 	for {
 		//ok为true说明channel没有关闭，为false说明管道已经关闭
 		if data, ok := <-c; ok { //这里会阻塞的读

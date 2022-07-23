@@ -21,4 +21,13 @@ func main() {
 
 	/* 使用指针访问值 */
 	fmt.Printf("*ip 变量的值: %d\n", *ip)
+
+	var b int
+	test(&b) //类似php里的引用
+	fmt.Printf("b变量的值: %d\n", b)
+
+}
+
+func test(p *int) {
+	*p = 10
 }

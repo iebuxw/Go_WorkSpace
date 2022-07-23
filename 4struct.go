@@ -78,6 +78,11 @@ func main() {
 	jsonStr, _ := json.Marshal(b)
 	fmt.Println("json=", string(jsonStr))
 
+	//解析json
+	jsonDec := Books{}
+	err := json.Unmarshal(jsonStr, &jsonDec)
+	fmt.Printf("json decode=%#v err=%s\n", jsonDec, err)
+
 	//为啥底下两种写法都可以？容易混淆，注意是等价的
 	book2 := Books2{}
 	//book2 := &Books2{}
