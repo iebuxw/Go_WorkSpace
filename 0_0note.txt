@@ -241,6 +241,8 @@ go加载第三方包：go mod tidy
         var a interface{} = 10
          _,isInt := a.(int) // 进行类型的断言的变量必须是空接口
 
+类型断言：在Go语言中类型断言的语法格式如下: value,ok:=x.(T) 1 其中,x 表示一个接口的类型,T 表示一个具体的类型(也可为接口类型)。
+
 //初始化
     var a int32
     var a string
