@@ -315,3 +315,6 @@ go mode和go path会有冲突，用go path的时候需要禁用掉go mode
     字符串:
         1、用sprintf
         2、用strconv函数
+
+php函数转go函数的链接：https://www.php2golang.com/
+php与go对比：https://www.jianshu.com/p/44905bdeb505/
