@@ -12,9 +12,13 @@ main函数必须在main包，同一个文件夹下不能有多个main包
     1、输出并换行：fmt.Println，打印多个会加空格
     2、Sprintf：格式化并返回变量
     2、Printf：格式化输出，不可以输出整形变量和整形
-        %v：打印结构体时，会添加字段名
         %t：布尔值
-        %q：加引号
+        %q：如果是字符串会加引号，看得清楚
+        %v      相应值的默认格式。            Printf("%v", people)   {zhangsan}，
+        %+v     打印结构体时，会添加字段名     Printf("%+v", people)  {Name:zhangsan}
+        %#v     相应值的Go语法表示            Printf("#v", people)   main.Human{Name:"zhangsan"}
+        %T      相应值的类型的Go语法表示       Printf("%T", people)   main.Human
+        %%      字面上的百分号，并非值的占位符  Printf("%%")            %
 
 报错相关
 	报错：no required module provides package hello.go: go.mod file not found in current directory or any parent directory; see 'go help modules'
@@ -209,6 +213,10 @@ go没有继承概念
      要点:
         1、只能放指定数据类型
         2、放满了不能放
+     锁：
+        1、放满了没人取
+        2、取时候是空的
+        3、关闭的话读取是不会阻塞的
 
 包的引入：
     1、方法名需要首字母大写，小写认为是private，引入不进来的
@@ -232,6 +240,8 @@ go加载第三方包：go mod tidy
     3、go中的类型判断则是判断一个变量是否属于某一种类型
         var a interface{} = 10
          _,isInt := a.(int) // 进行类型的断言的变量必须是空接口
+
+类型断言：在Go语言中类型断言的语法格式如下: value,ok:=x.(T) 1 其中,x 表示一个接口的类型,T 表示一个具体的类型(也可为接口类型)。
 
 //初始化
     var a int32
@@ -296,3 +306,12 @@ go path的使用
 
 go path的禁用
 	set GO111MODULE=on
+go mode和go path会有冲突，用go path的时候需要禁用掉go mode
+
+数据类型转换：int64()直接转
+    数字：
+        1、无论是低精度到高精度都要强转
+        2、高精度转到低精度，如果溢出不会报错，按溢出处理，取最大值
+    字符串:
+        1、用sprintf
+        2、用strconv函数

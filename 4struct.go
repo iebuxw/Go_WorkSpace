@@ -78,6 +78,11 @@ func main() {
 	jsonStr, _ := json.Marshal(b)
 	fmt.Println("json=", string(jsonStr))
 
+	//解析json
+	jsonDec := Books{}
+	err := json.Unmarshal(jsonStr, &jsonDec)
+	fmt.Printf("json decode=%#v err=%s\n", jsonDec, err)
+
 	//为啥底下两种写法都可以？容易混淆，注意是等价的
 	book2 := Books2{}
 	//book2 := &Books2{}
@@ -87,4 +92,11 @@ func main() {
 	//结构体继承
 	book3 := Books3{book2, 111, "page2"}
 	fmt.Println("book3=", book3)
+
+	//其他写法
+	var foo Books = Books{} //初始化
+	var foo2 Books
+	var bar interface{}
+	foo2 = bar.(Books) //类型断言，把空接口赋值给自定义变量
+	fmt.Println(foo, foo2, bar)
 }

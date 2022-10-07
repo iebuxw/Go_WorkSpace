@@ -50,3 +50,7 @@ func LoginSw(s sw) {
 		s.(*Huawei).sfunc2()
 	}
 }
+
+//万能数据类型  interface{}
+//怎么判断传进来的是什么类型？用类型断言，根据不同的类型进行不同的处理
+//value, ok := s.(string)		//类型断言判断是否是string
