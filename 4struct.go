@@ -44,6 +44,10 @@ func (v Books) getList2() {
 	fmt.Println("Title2=", v.Title)
 }
 
+func printBook(book *Books) {
+	fmt.Printf("Book title : %s\n", book.Title) //指针.属性也是可以的，go语言底层优化了，方便书写
+}
+
 func main() {
 	// 创建一个新的结构体
 	b := Books{"Go 语言", "www.runoob.com", "Go 语言教程", 6495407} //推荐定义方式
@@ -71,7 +75,7 @@ func main() {
 
 	b.getList2()
 	fmt.Println("main b.Title=", b.Title)  //Go 语言
-	(&b).getList2()                        //仍然是值拷贝，跟上面等价
+	(&b).getList2()                        //仍然是值拷贝，跟上面等价，go语言底层优化了，方便书写
 	fmt.Println("main2 b.Title=", b.Title) //Go 语言
 
 	//转json：序列化，Marshal函数使用了反射
@@ -94,9 +98,12 @@ func main() {
 	fmt.Println("book3=", book3)
 
 	//其他写法
-	var foo Books = Books{} //初始化
+	/*var foo Books = Books{} //初始化
 	var foo2 Books
 	var bar interface{}
 	foo2 = bar.(Books) //类型断言，把空接口赋值给自定义变量
-	fmt.Println(foo, foo2, bar)
+	fmt.Println(foo, foo2, bar)*/
+
+	/* 打印 Book 信息 */
+	printBook(&b)
 }
