@@ -83,7 +83,7 @@ func main() {
 	err := json.Unmarshal(jsonStr, &jsonDec)
 	fmt.Printf("json decode=%#v err=%s\n", jsonDec, err)
 
-	//为啥底下两种写法都可以？容易混淆，注意是等价的
+	//为啥底下两种写法都可以？容易混淆，注意是等价的(go设计者为了程序员方便，简化了写法,book2.Title,book2可以是结构体，也可以是结构体指针)
 	book2 := Books2{}
 	//book2 := &Books2{}
 	book2.Title = "java"
@@ -94,9 +94,15 @@ func main() {
 	fmt.Println("book3=", book3)
 
 	//其他写法
-	var foo Books = Books{} //初始化
+	/*var foo Books = Books{} //初始化
 	var foo2 Books
 	var bar interface{}
 	foo2 = bar.(Books) //类型断言，把空接口赋值给自定义变量
-	fmt.Println(foo, foo2, bar)
+	fmt.Println(foo, foo2, bar)*/
+
+	//结构体指针
+	var testp *Books3 = new(Books3)
+	//var testp *Books3 = &Books3{}  //跟上面的等价
+	testp.Page = 10 // 等价 (*testp).Page = 10,go设计者为了程序员方便，简化了写法
+	fmt.Println("testp", testp)
 }
