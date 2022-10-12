@@ -44,6 +44,10 @@ func (v Books) getList2() {
 	fmt.Println("Title2=", v.Title)
 }
 
+func printBook(book *Books) {
+	fmt.Printf("Book title : %s\n", book.Title) //指针.属性也是可以的，go语言底层优化了，方便书写
+}
+
 func main() {
 	// 创建一个新的结构体
 	b := Books{"Go 语言", "www.runoob.com", "Go 语言教程", 6495407} //推荐定义方式
@@ -71,7 +75,7 @@ func main() {
 
 	b.getList2()
 	fmt.Println("main b.Title=", b.Title)  //Go 语言
-	(&b).getList2()                        //仍然是值拷贝，跟上面等价
+	(&b).getList2()                        //仍然是值拷贝，跟上面等价，go语言底层优化了，方便书写
 	fmt.Println("main2 b.Title=", b.Title) //Go 语言
 
 	//转json：序列化，Marshal函数使用了反射
@@ -105,4 +109,7 @@ func main() {
 	//var testp *Books3 = &Books3{}  //跟上面的等价
 	testp.Page = 10 // 等价 (*testp).Page = 10,go设计者为了程序员方便，简化了写法
 	fmt.Println("testp", testp)
+
+	/* 打印 Book 信息 */
+	printBook(&b)
 }

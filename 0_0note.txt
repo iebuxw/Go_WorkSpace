@@ -52,6 +52,8 @@ main函数必须在main包，同一个文件夹下不能有多个main包
     var的用法：var identifier type
     make的用法：make(type, length, capacity)//capacity就是容量，警戒值
 
+    Golang语法简洁，点分符'.'的左边，既可以是实体对象，也可以是指针对象，底层优化了，为了书写方便
+
     没有++i，只有i++，并且需要单独写，不能a := i++
 
     17/5，结果是3，小数部分被舍弃了
@@ -267,18 +269,53 @@ defer
 defer是go中一种延迟调用机制，defer后面的函数只有在当前函数执行完毕后才能执行，通常用于释放资源
 defer遵循先进后出的原则，类似于栈的结构。
 
+GOROOT是指的Golang的安装目录
+GOPATH是指的Golang的工作目录
+
+代码的组织路径：
+goWorkSpace     // goWorkSpace为GOPATH目录
+  -- bin
+     -- myApp1  // 编译生成
+     -- myApp2  // 编译生成
+  -- pkg
+  -- src
+     -- common 1
+     -- common 2
+     -- common utils ...
+     -- myApp1     // project1
+        -- models
+        -- controllers
+        -- others
+        -- main.go
+     -- myApp2     // project2
+        -- models
+        -- controllers
+        -- others
+        -- main.go
+
+不同的项目可以设置不同的GO111MODULE，例如Go_WorkSpace项目使用的go path，gindemo使用的go mod
+
 go mod的使用
-	gopath是D:\go_code\，则在Go_WorkSpace目录下执行
-	1、go mod init Go_WorkSpace
-	2、编写配置文件
-	3、执行go get命令，拉取依赖库：
-	go mod tidy //拉取缺少的模块，移除不用的模块。
+	gopath是D:\go_code\，代码在D:\go_code\Go_WorkSpace，则在Go_WorkSpace目录下执行
+	1、set GO111MODULE=on
+	2、go mod init Go_WorkSpace
+	3、编写配置文件
+	4、go mod tidy //拉取缺少的模块，移除不用的模块。
+	另：执行 go build main.go 或者 执行go get命令，拉取依赖库
 
 go mod的禁用
 	set GO111MODULE=off
-	或者
-	删掉go mod的文件然后执行set GO111MODULE=auto
 
+go mode和go path会有冲突，用go path的时候需要禁用掉go mode，一般情况下，用go mod就好了
+
+go path的使用
+    1、set GO111MODULE=off
+    2、在代码里import
+    3、go get -t ... 代码里有提示，直接执行下就行
+    4、go build main.go
+
+go path的禁用
+	set GO111MODULE=on
 go mode和go path会有冲突，用go path的时候需要禁用掉go mode
 
 GOROOT：GOROOT就是Go的安装目录，（类似于java的JDK）
@@ -295,3 +332,6 @@ GOPATH：GOPATH是我们的工作空间,保存go项目代码和第三方依赖�
     字符串:
         1、用sprintf
         2、用strconv函数
+
+php函数转go函数的链接：https://www.php2golang.com/
+php与go对比：https://www.jianshu.com/p/44905bdeb505/
