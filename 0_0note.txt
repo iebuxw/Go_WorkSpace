@@ -337,5 +337,9 @@ GOPATH：GOPATH是我们的工作空间,保存go项目代码和第三方依赖�
         1、用sprintf
         2、用strconv函数
 
+协程：多进程
+通道：协程间通信
+select：类似switch，用来监听和通道有关的IO操作
+
 php函数转go函数的链接：https://www.php2golang.com/
 php与go对比：https://www.jianshu.com/p/44905bdeb505/
