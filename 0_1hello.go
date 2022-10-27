@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
-import "github.com/xuri/excelize/v2"
+import (
+	"fmt"
+)
+//import "github.com/xuri/excelize/v2"
 
 // 在main之前调用
 func init() {
@@ -10,7 +12,7 @@ func init() {
 
 func main() {
 	fmt.Println("Hello World!")
-	f := excelize.NewFile()
+	/*f := excelize.NewFile()
 	// 创建一个工作表
 	index := f.NewSheet("Sheet2")
 	// 设置单元格的值
@@ -21,5 +23,5 @@ func main() {
 	// 根据指定路径保存文件
 	if err := f.SaveAs("Book1.xlsx"); err != nil {
 		fmt.Println(err)
-	}
+	}*/
 }
