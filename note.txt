@@ -185,3 +185,7 @@ go没有继承概念
 GOROOT 指的是go的安装目录，如果设置失败按以下操作
 https://blog.csdn.net/qq_26979105/article/details/122677749
 GOPATH 是我们的工作空间, 用来存放包的目录
+比如自己的代码配置：
+    GOROOT：set GOROOT=D:\Program Files\Go
+    GOPATH：set GOPATH=D:\go_code\go_path
+    代码目录：D:\go_code\Go_WorkSpace\note.txt
