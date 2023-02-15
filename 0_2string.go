@@ -89,10 +89,19 @@ func main() {
 	//strpos，不存在则返回-1
 	var7 := strings.Index("wokkkdddssss", "ok")
 	fmt.Println(var7)
+	//strrpos，不存在则返回-1
+	var7_1 := strings.LastIndex("wokkkdddssss", "sss")
+	fmt.Println(var7_1)
 	//字符串替换,-1代表全部替换
 	var8 := strings.Replace("wokkkdddokssss", "ok", "go22", -1)
 	fmt.Println(var8)
 	//字符串截取
+	//使用字符串切片的形式，截取字符串
+	sstr := "Hello HaiCoder!"
+	sstr1 := sstr[0:4]
+	sstr2 := sstr[:8]
+	sstr3 := sstr[4:9]
+	fmt.Println("sstr1 =", sstr1, "sstr2 =", sstr2, "sstr3 =", sstr3)
 	//implode
 	//explode
 	var9 := strings.Split("wok,kkd,ddo,kssss", ",")

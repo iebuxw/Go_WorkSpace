@@ -7,5 +7,9 @@ import "fmt"
 func main() {
 	if true {
 		fmt.Println("222222")
+	} else if 1 == 2 {
+		fmt.Println("33333")
+	} else {
+		fmt.Println("44444")
 	}
 }

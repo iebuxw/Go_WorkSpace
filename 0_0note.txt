@@ -205,6 +205,8 @@ a := [3][4]int{
 	number4 := numbers[3:]  /*  3(包含) 到索引上限为 len(s) */
 	fmt.Println("number4 == ", number4)  //[3 4 5 6 7 8]
 
+    坑：经扩容后的切片会复制到新的内存地址中。
+        坑解释地址：https://www.jianshu.com/p/4045ea4795b5
 语言范围
 
 

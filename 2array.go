@@ -46,7 +46,7 @@ func main() {
 	fmt.Println("切片从数组取值", arr3[1:2]) //注意只有一个元素，包含头不包含尾
 
 	//数组函数
-	//count
+	//count			=>  len()
 	//in_array
 	//implode
 	//array_push
