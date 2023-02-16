@@ -30,6 +30,17 @@ func main() {
 	fmt.Println("number2 == ", number2)
 	fmt.Println("c == ", c)
 
+	//删除中间一个元素 [1,2,3,4,5]  => [1,2,4,5]
+	idx := 2
+	a2 := append(number2[:idx], number2[idx+1:]...)
+	fmt.Println("a2 == ", a2)
+
+	//复制，避免引用赋值
+	a3 := make([]int, 4)
+	copy(a3, a2)
+	a3[2] = 10
+	fmt.Println("a3 == ", a3)
+
 	//定义切片2
 	slice2 := make([]int, 2)
 	//切片赋值
