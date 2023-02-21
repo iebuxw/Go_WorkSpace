@@ -1,54 +1,45 @@
 package main
 
+import "fmt"
+
+// 接口就是定义规范
+// 不过貌似在代码中，interface部分就算注释了也能运行，interface和struct没有直接绑定
 type sw interface {
 	//定义交换机公共方法
 	login()
+	logout()
 }
 
 type Huawei struct {
 	//定义华为结构体
+	Name string
 }
 
 type Zte struct {
 	//定义中兴结构体
+	Name string
 }
 
-func (*Huawei) login() {
+func (c Huawei) login() {
 	//华为交换机登录的公共方法
+	fmt.Println(c.Name)
 }
 
-func (*Huawei) sfunc2() {
-	//华为交换机的特殊方法
-}
-
-func (*Zte) login() {
+func (c Zte) login() {
 	//zte交换机登录的公共方法
+	fmt.Println(c.Name)
 }
 
-func (*Zte) sfunc1() {
-	//zte交换机的特殊方法
-}
-
-func NewSwHuawei() sw {
-	//华为结构体初始化，返回值是sw接口
-	return &Huawei{}
-}
-
-func NewZte() sw {
-	//中兴结构体初始化，返回值是sw接口
-	return &Zte{}
-}
-
-func LoginSw(s sw) {
-	//某个交换机登录的公共函数
-	switch s.(type) {
-	case *Zte:
-		s.login()
-		s.(*Zte).sfunc1()
-	case *Huawei:
-		s.login()
-		s.(*Huawei).sfunc2()
+func main() {
+	c := Huawei{
+		Name: "huawei",
 	}
+	c.login()
+
+	d := Zte{
+		Name: "zte",
+	}
+	d.login()
 }
 
 //万能数据类型  interface{}
