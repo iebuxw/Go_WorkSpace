@@ -273,8 +273,18 @@ defer
 defer是go中一种延迟调用机制，defer后面的函数只有在当前函数执行完毕后才能执行，通常用于释放资源
 defer遵循先进后出的原则，类似于栈的结构。
 
+代码目录：D:\go_code\Go_WorkSpace\
 GOROOT是指的Golang的安装目录
+    查看：go env GOROOT
+    D:\Go
 GOPATH是指的Golang的工作目录
+    查看：go env GOPATH
+    D:\go_code
+改成linux：go env -w GOOS=linux
+压缩：
+    go build -ldflags="-s -w" monitor.go
+    "D:\Program Files\upx-4.0.1-win64\upx.exe" monitor
+
 
 代码的组织路径：
 goWorkSpace     // goWorkSpace为GOPATH目录
