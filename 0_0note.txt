@@ -301,6 +301,12 @@ goWorkSpace     // goWorkSpace为GOPATH目录
 
 go mod的使用
 	gopath是D:\go_code\，代码在D:\go_code\Go_WorkSpace，则在Go_WorkSpace目录下执行
+	参考命令，也可以编辑器里操作：
+        set GOROOT=D:\Program Files\Go              // go安装目录
+        set GOPATH=D:\go_code                       // 第三方库
+        set GO111MODULE=on                          // 开启go mod
+        set GOPROXY=https://goproxy.io,direct       // 配置代理
+
 	1、set GO111MODULE=on
 	2、在main.go同级目录执行go mod init     或者在项目下      go mod init Go_WorkSpace
 	3、编写配置文件
