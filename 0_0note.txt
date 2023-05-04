@@ -273,8 +273,18 @@ defer
 defer是go中一种延迟调用机制，defer后面的函数只有在当前函数执行完毕后才能执行，通常用于释放资源
 defer遵循先进后出的原则，类似于栈的结构。
 
+代码目录：D:\go_code\Go_WorkSpace\
 GOROOT是指的Golang的安装目录
+    查看：go env GOROOT
+    D:\Go
 GOPATH是指的Golang的工作目录
+    查看：go env GOPATH
+    D:\go_code
+改成linux：go env -w GOOS=linux
+压缩：
+    go build -ldflags="-s -w" monitor.go
+    "D:\Program Files\upx-4.0.1-win64\upx.exe" monitor
+
 
 代码的组织路径：
 goWorkSpace     // goWorkSpace为GOPATH目录
@@ -309,6 +319,8 @@ go mod的使用
 
 	1、set GO111MODULE=on
 	2、在main.go同级目录执行go mod init     或者在项目下      go mod init Go_WorkSpace
+	    如果报错：go: cannot determine module path for source directory D:\go_code\fsnotify (outside GOPATH, module path must be specified)
+	    解决：加上项目路径就行
 	3、编写配置文件
 	4、go mod tidy //拉取缺少的模块，移除不用的模块。
 	另：执行 go build main.go 或者 执行go get命令，拉取依赖库
