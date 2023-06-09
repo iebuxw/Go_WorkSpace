@@ -6,12 +6,22 @@ import (
 	"strings"
 )
 
+/*
+func function_name( [parameter list] ) [return_types] {
+   函数体
+}
+
+*/
 func main() {
 	fmt.Println("Hello World!")
 
 	arr1 := [...]int{1, 2, 3}
 	is_in, _ := in_array(arr1, 2)
 	fmt.Println(is_in)
+
+	arr2 := [...]string{"1", "2", "3"}
+	is_in2, _ := in_array(arr2, "4")
+	fmt.Println(is_in2)
 
 	slice1 := []string{"1", "2", "3"}
 	imp_str := Implode(",", slice1)

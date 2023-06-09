@@ -80,7 +80,7 @@
 	//这种不带声明格式的(:=)只能在函数体中出现（也就是只能声明局部变量）
 	//g, h := 123, "hello"
 
-全局变量(函数外)：在函数体外声明的变量称之为全局变量，全局变量可以在任何函数中使用
+全局变量(函数外)：在函数体外声明的变量称之为全局变量，全局变量可以在任何函数中使用，不需要加global关键字
 	var (  // 这种因式分解关键字的写法一般用于声明全局变量
 		a int
 		b bool
@@ -93,7 +93,7 @@
 	&	返回变量存储地址
 	*	指针变量。
 
-变量赋值
+声明变量
 	var a string = "Runoob" //指定类型
 	var v_name = value //自行判断类型
 	intVal := 1 相当于：var intVal int; intVal =1 //使用:=
@@ -166,7 +166,7 @@ for循环
 数组：数组是具有相同唯一类型的一组已编号且长度固定的数据项序列。注意：1、类型要一样；2、长度固定（类似索引数组？）
 	var balance = [5]float32{1000.0, 2.0, 3.4, 7.0, 50.0}
 
-数组函数（Go 数组的长度不可改变）：append
+数组函数（Go 数组的长度不可改变）
 
 二维数组
 a := [3][4]int{
@@ -223,8 +223,6 @@ a := [3][4]int{
 
     坑：经扩容后的切片会复制到新的内存地址中。
         坑解释地址：https://www.jianshu.com/p/4045ea4795b5
-语言范围
-
 
 语言Map(hash map)
     Map 是一种无序的键值对的集合。1、键、值分别统一类型；2、键值对；3、无序；4、动态扩充和删除
@@ -251,15 +249,12 @@ go没有继承概念
     2、貌似要放在$GO_PATH的src下，并且文件夹名、文件名、包名一致？// 包名通常跟文件名保持一致
     3、引入时候按路径引入即可
 
-编译可执行文件：go build -o bin\my.exe aaa\ddd\dccc\main
-    1、编译命令要在$GO_PATH目录下执行
-    2、编译是编译main包
+编译可执行文件：go build -o my.exe my.go
+    1、编译必须是main包
     3、-o是换exe的路径、名称
 
 go传参数启动服务
 go run main.go -redis 192.168.99.233:6379
-
-go加载第三方包：go mod tidy
 
 
 类型转换
@@ -281,7 +276,6 @@ go加载第三方包：go mod tidy
     var a *int
     var a chan int
     var a func(string) int
-
 
 defer
 defer是go中一种延迟调用机制，defer后面的函数只有在当前函数执行完毕后才能执行，通常用于释放资源
@@ -335,14 +329,11 @@ go mod的使用
 	2、在main.go同级目录执行go mod init     或者在项目下      go mod init Go_WorkSpace
 	    如果报错：go: cannot determine module path for source directory D:\go_code\fsnotify (outside GOPATH, module path must be specified)
 	    解决：加上项目路径就行
-	3、编写配置文件
+	3、直接写代码
 	4、go mod tidy //拉取缺少的模块，移除不用的模块。
 	另：执行 go build main.go 或者 执行go get命令，拉取依赖库
 	    go mod tidy超时，则换代理：go env -w GOPROXY=https://goproxy.io,direct
 
-	或者直接
-	项目在gopath的src下的demo
-	然后在main.go同级目录执行go mod init
 
 go mod的禁用
 	set GO111MODULE=off

@@ -12,4 +12,15 @@ func main() {
 	} else {
 		fmt.Println("44444")
 	}
+
+	// switch语句
+	int2 := 10
+	switch int2 {
+	case 0:
+		fmt.Println("int2= 0")
+	case 10:
+		fmt.Println("int2= 10")
+	default:
+		fmt.Println("int2= def")
+	}
 }

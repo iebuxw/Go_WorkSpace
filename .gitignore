@@ -16,3 +16,5 @@
 .idea
 /1.go
 /0_0test.go
+/go.mod
+/go.sum

@@ -43,15 +43,6 @@ func main() {
 	var targetUrl = fmt.Sprintf(url, stockcode, enddate)
 	fmt.Println(targetUrl)
 
-	switch int2 {
-	case 0:
-		fmt.Println("int2= 0")
-	case 10:
-		fmt.Println("int2= 10")
-	default:
-		fmt.Println("int2= def")
-	}
-
 	//byte 等同于int8，即一个字节长度，常用来处理ascii字符
 	//rune 等同于int32，即4个字节长度,常用来处理unicode或utf-8字符
 	//包含中文的字符串应该先转成rune，在计算长度。[]rune应该是个切片
