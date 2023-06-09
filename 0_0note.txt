@@ -1,17 +1,31 @@
-main函数必须在main包，同一个文件夹下不能有多个main包
+基础语法
+    不需要分号
 
+常用命令
+    go env                                       // 查看配置
+    go env GOROOT                                // 查看某个配置
+    go env -w GO111MODULE=auto                   // 设置某个配置
+    go version                                   // 看go版本号
+    go build -o [xxx2.exe] xxx.go                   // 编译，注意需要是main包
+        压缩，upx需要安装：
+            go build -ldflags="-s -w" monitor.go
+            "D:\Program Files\upx-4.0.1-win64\upx.exe" monitor
+    go env -w GOOS=linux                          // 切换平台
+        go env -w GOOS=windows
 
 代码组织
     go的项目是由包来组织的
     go的每一个文件要属于一个包，不能单独存在
+    main函数必须在main包，同一个文件夹下不能有多个main包
 
 垃圾回收：引入垃圾回收机制，内存自动回收，不需要开发人员管理
-天然的支持高并发
+并发：天然的支持高并发
 
 打印：
     1、输出并换行：fmt.Println，打印多个会加空格
     2、Sprintf：格式化并返回变量
     2、Printf：格式化输出，不可以输出整形变量和整形
+        %s和%d和php一样的
         %t：布尔值
         %q：如果是字符串会加引号，看得清楚
         %v      相应值的默认格式。            Printf("%v", people)   {zhangsan}，
@@ -324,6 +338,7 @@ go mod的使用
 	3、编写配置文件
 	4、go mod tidy //拉取缺少的模块，移除不用的模块。
 	另：执行 go build main.go 或者 执行go get命令，拉取依赖库
+	    go mod tidy超时，则换代理：go env -w GOPROXY=https://goproxy.io,direct
 
 	或者直接
 	项目在gopath的src下的demo

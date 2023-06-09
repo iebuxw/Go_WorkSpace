@@ -23,7 +23,7 @@ func main() {
 				}
 				// 打印监听事件
 				log.Print("event:", event)
-				php /opt/www/yiic evidschedule
+
 				// 可以启动新的goroutine或使用channel进行事件传递
 			case _, ok := <-watcher.Errors:
 				if !ok {
