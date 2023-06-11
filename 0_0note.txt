@@ -371,3 +371,45 @@ select：类似switch，用来监听和通道有关的IO操作
 
 php函数转go函数的链接：https://www.php2golang.com/
 php与go对比：https://www.jianshu.com/p/44905bdeb505/
+
+常用库：
+go好用的库
+encoding/json
+net/http
+os：提供了操作系统相关的函数，如文件处理、进程管理、环境变量等
+io：提供了输入输出相关的函数，如读写文件、打开网络连接等。
+flag：提供了命令行参数解析的功能
+fsnotify 监控文件或目录改动的第三方库
+log Go标准日志库
+carbon 功能强大的日期时间库，仿 PHP 的同名库
+email 发送邮件的第三方库
+gron 定时任务管理库
+cli 命令行程序库，方便编写命令行程序
+cron 定时任务管理库，对标 Linux 的 crontab 命令
+
+slice操作库
+pie：pie包几乎把slice经常用到的功能都做了封装
+    https://mp.weixin.qq.com/s/vdVZYEy5LznQSHI6klaCIg
+golang-set：提供了对集合进行各种集合运算的支持，例如并集、交集、差集等
+sort 包：在标准库中，提供了对切片进行排序的支持，可以使用该包中的函数来对切片进行升序或降序排序。
+gods：提供了多种数据结构的实现，包括动态数组、链表、栈、队列等，其中动态数组就是基于 Go 的 slice 实现的
+go-funk：提供了多种函数式编程的操作，特别是对于切片和集合的操作，如筛选、映射、过滤等
+
+struct操作库
+reflect 包：在标准库中，提供了对结构体进行反射的支持，可以使用该包中的函数来获取结构体的类型信息、字段信息、方法信息等。
+structs 包：提供了一些基本的结构体操作，例如将结构体转化为 map 类型、比较两个结构体是否相等等。
+go-structcopy/structcopy 包：提供了结构体之间复制的支持，可以快速地将一个结构体的值复制到另一个结构体中。
+structil 包：提供了一些高级的结构体操作，如多个结构体的合并、自定义序列化和反序列化等。
+validator 包：提供了对结构体字段的验证功能，可以校验数据的正确性，例如校验字符串是否符合邮箱格式、手机号格式等。
+gorm 包：提供了对结构体与数据库表的映射支持，可以将结构体与数据库表进行关联，方便进行 CRUD 操作
+
+map操作库
+mapset 是一个高效且易于使用的 map 集合实现，使用红黑树来管理元素。它提供了许多常见的操作，例如并集、交集、差集等，同时还支持迭代器和回调函数。
+mergo：merge structs and maps in Golang
+
+好用的框架
+gin
+gorm
+viper：一个配置解析库
+go-redis：一个Redis客户端库，提供了丰富的Redis API
+
