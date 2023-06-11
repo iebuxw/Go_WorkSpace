@@ -9,29 +9,14 @@ import (
 	"time"
 )
 
-//init函数会在main之前执行
 //var的用法：var identifier type
 //make的用法：make(type, length, capacity)//capacity就是容量，警戒值
-func init() {
-	fmt.Println("this is init...")
-}
-
-//main 函数是每一个可执行程序所必须包含的
 func main() {
-	fmt.Println("this is main...")
-
-	var str1 string
-	str1 = "我是str1"
-	fmt.Println("str1= ", str1)
-
-	var str string = "yyyyy"
+	//变量的定义
+	/*var str string = "yyyyy"     --一般不用
+	var str3 = "zzzzzz"*/
 	str2 := "yyyyyaaa"
-	int2 := 10
-	var str3 = "zzzzzz"
-
-	fmt.Println("str= ", str)
 	fmt.Println("str2= ", str2)
-	fmt.Println("str3= ", str3)
 
 	//字符串连接
 	fmt.Println("Hello " + "World!")
@@ -39,8 +24,7 @@ func main() {
 	// %d 表示整型数字，%s 表示字符串
 	var stockcode = 123
 	var enddate = "2020-12-31"
-	var url = "Code=%d&endDate=%s"
-	var targetUrl = fmt.Sprintf(url, stockcode, enddate)
+	var targetUrl = fmt.Sprintf("Code=%d&endDate=%s", stockcode, enddate)
 	fmt.Println(targetUrl)
 
 	//byte 等同于int8，即一个字节长度，常用来处理ascii字符
@@ -61,50 +45,60 @@ func main() {
 	str14 = string(r)
 
 	//字符串函数
+	//strlen
 	var2 := "12233"
 	fmt.Println("var2 len= ", len(var2))
-	//strconv
-	//字符串转整数
+
+	//字符串转整数intval
 	int1, error2 := strconv.Atoi(var2)        //方式一
 	var11, _ := strconv.ParseInt(var2, 10, 0) //方式二10代表基准是10进制，0代表转成int
-	//方式三 sprintf
-	fmt.Println(int1, error2, var11)
+	fmt.Println(int1, error2, var11)          //方式三 sprintf
 	//整数转字符串
 	var4 := 1000
 	var5 := strconv.Itoa(var4)
-	var10 := strconv.FormatInt(int64(var4), 10) //这种也可以 Itoa 等价 FormatInt(int64(var4), 10)
+	var10 := strconv.FormatInt(int64(var4), 10) //这种也可以 Itoa 等价 FormatInt(int64(var4), 10)，第二个参数10代表10进制
 	fmt.Println(var5, var10)
+
 	//字符串是否包含
-	var6 := strings.Contains("wokkkdddssss", "ok")
-	fmt.Println(var6)
+	var6 := strings.Contains("wokkkdddssss", "wo")
+	fmt.Println("is contains", var6)
+
 	//strpos，不存在则返回-1
 	var7 := strings.Index("wokkkdddssss", "ok")
 	fmt.Println(var7)
-	//strrpos，不存在则返回-1
-	var7_1 := strings.LastIndex("wokkkdddssss", "sss")
-	fmt.Println(var7_1)
-	//字符串替换,-1代表全部替换
+
+	//str_replace字符串替换,-1代表全部替换
 	var8 := strings.Replace("wokkkdddokssss", "ok", "go22", -1)
 	fmt.Println(var8)
-	//字符串截取
+	//字符串截取，substr
 	//使用字符串切片的形式，截取字符串
 	sstr := "Hello HaiCoder!"
-	sstr1 := sstr[0:4]
+	sstr1 := sstr[0:4] // 包含0不包含4
 	sstr2 := sstr[:8]
 	sstr3 := sstr[4:9]
 	fmt.Println("sstr1 =", sstr1, "sstr2 =", sstr2, "sstr3 =", sstr3)
+
+	//中文截取
+	sstr_z := "Hello是大是大非!"
+	sstr_r := []rune(sstr_z)
+	fmt.Println("中文截取后结果 =", string(sstr_r[1:8])) // 包含1不包含8
+
 	//implode
 	//explode
 	var9 := strings.Split("wok,kkd,ddo,kssss", ",")
 	fmt.Println("var9 =", var9)
-	//转大小写
+
+	//strtolower和strtoupper转大小写
 	fmt.Println(strings.ToLower("GOOOO"))
 	fmt.Println(strings.ToUpper("dssaaa"))
+
 	//trim
 	fmt.Printf("str = %q", strings.TrimSpace("  ds   saaa    "))
-	//是否已什么开头
+
+	//startWith，是否已什么开头
 	fmt.Printf("res = %t", strings.HasPrefix("asodddddd", "aso"))
-	//是否已什么结尾
+
+	//endWith，是否已什么结尾
 	fmt.Printf("res = %t", strings.HasSuffix("asodddddse", "dse"))
 
 	//日期函数
