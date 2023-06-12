@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"sync"
+	"time"
 )
 
 //通道（channel）是用来传递数据的一个数据结构。管道的本质是一个队列
@@ -15,6 +18,12 @@ import (
     4、单向队列，收和发分开
     5、chan与select，作用是可以监听多个chan
     6、阻塞的条件：1、未关闭写写满了；2、未关闭读完了
+
+应用场景：
+	1、超时控制
+	2、定时任务
+	3、生产和消费
+	4、控制并发数
 */
 
 //var intB chan int
@@ -47,6 +56,12 @@ func main() {
 
 	//测试select
 	dofibonacci()
+
+	//测试超时控制
+	testLongTask()
+
+	//测试生产消费
+	testProducer()
 }
 
 func readData(intChan chan int) {
@@ -99,7 +114,7 @@ func counter(out chan<- int) {
 func printer(in <-chan int) {
 	//for …… range语句可以处理Channel。阻塞迭代
 	for num := range in { //range in产生的迭代值为Channel中发送的值，它会一直迭代直到channel被关闭
-		fmt.Println(num)
+		fmt.Println("这里消费：", num)
 	}
 }
 
@@ -130,3 +145,124 @@ func dofibonacci() {
 
 	fibonacci(c, quit)
 }
+
+// 任务定时
+func longTask(ch chan bool) {
+	// 模拟需要执行的耗时任务
+	time.Sleep(5 * time.Second)
+	ch <- true
+}
+
+func testLongTask() {
+	ch := make(chan bool)
+
+	go longTask(ch)
+
+	// 使用 select 语句等待任务完成或超时
+	select {
+	case <-ch:
+		fmt.Println("任务已完成！")
+	case <-time.After(3 * time.Second):
+		fmt.Println("任务已超时！")
+	}
+}
+
+// 每隔 1 秒种，执行一次定时任务
+func timeOut2(){
+	ticker := time.Tick(1 * time.Second)
+	for {
+		select {
+			case <- ticker:
+				// 执行定时任务
+				fmt.Println("执行 1s 定时任务")
+		}
+	}
+}
+
+// 控制并发数，开启5个并发
+func aa(){
+	ch := make(chan int, 5)
+	urls := []string{"11111", "222"}
+	for _, url := range urls {
+		go func() {
+			ch <- 1
+			// 做一些事情
+			// 注意，事情里需要定义下defer close(ch)，否则发生panic就一直阻塞了
+			fmt.Println(url)
+			<- ch
+		}()
+	}
+}
+
+// 测试生产消费
+func testProducer() {
+	fmt.Println("testProducer start")
+	ch := make(chan int)
+	done := make(chan bool)
+
+	go producer(ch)
+	go consumer(ch, done)
+
+	<-done
+	fmt.Println("testProducer end")
+}
+
+//生产者
+func producer(ch chan<- int) {
+	rand.Seed(time.Now().Unix())  // 不加这个每次执行都返回相同的结果
+	for {
+		num := rand.Intn(100)
+		fmt.Println("producer:", num)
+		ch <- num
+	}
+}
+
+//消费者
+func consumer(ch <-chan int, done chan<- bool) {
+	var sum int
+	for i := 0; i < 10; i++ {
+		num := <-ch
+		sum += num
+		fmt.Println("Consumed:", num)
+	}
+	fmt.Println("Total sum is", sum)
+	done <- true
+}
+
+// 测试WaitGroup，作用是防止协程提前退出
+func testWaitGroup() {
+	var waitGroup sync.WaitGroup
+
+	start := time.Now()
+	waitGroup.Add(5)
+	for i := 0; i < 5; i++ {
+		go func() {
+			defer waitGroup.Done()
+			time.Sleep(time.Second)
+			fmt.Println("done")
+		}()
+	}
+
+	waitGroup.Wait()
+	fmt.Println(time.Now().Sub(start).Seconds())
+}
+
+// 阻塞函数
+func testBlock()  {
+	bufChan := make(chan int)
+	go func() {
+		for{
+			bufChan <-1
+			time.Sleep(time.Second)
+		}
+	}()
+
+	go func() {
+		for{
+			fmt.Println(<-bufChan)
+		}
+	}()
+	select{}    // 这里要注意上面一定要有一直活动的goroutine
+	//<-bufChan         --这样也行好像
+}
+
