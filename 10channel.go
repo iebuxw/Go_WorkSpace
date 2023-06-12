@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math/rand"
+	"sync"
 	"time"
 )
 
@@ -228,5 +229,40 @@ func consumer(ch <-chan int, done chan<- bool) {
 	done <- true
 }
 
+// 测试WaitGroup，作用是防止协程提前退出
+func testWaitGroup() {
+	var waitGroup sync.WaitGroup
 
+	start := time.Now()
+	waitGroup.Add(5)
+	for i := 0; i < 5; i++ {
+		go func() {
+			defer waitGroup.Done()
+			time.Sleep(time.Second)
+			fmt.Println("done")
+		}()
+	}
+
+	waitGroup.Wait()
+	fmt.Println(time.Now().Sub(start).Seconds())
+}
+
+// 阻塞函数
+func testBlock()  {
+	bufChan := make(chan int)
+	go func() {
+		for{
+			bufChan <-1
+			time.Sleep(time.Second)
+		}
+	}()
+
+	go func() {
+		for{
+			fmt.Println(<-bufChan)
+		}
+	}()
+	select{}    // 这里要注意上面一定要有一直活动的goroutine
+	//<-bufChan         --这样也行好像
+}
 
