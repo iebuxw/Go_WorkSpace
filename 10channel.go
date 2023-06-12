@@ -114,7 +114,7 @@ func counter(out chan<- int) {
 func printer(in <-chan int) {
 	//for …… range语句可以处理Channel。阻塞迭代
 	for num := range in { //range in产生的迭代值为Channel中发送的值，它会一直迭代直到channel被关闭
-		fmt.Println(num)
+		fmt.Println("这里消费：", num)
 	}
 }
 
