@@ -407,9 +407,15 @@ map操作库
 mapset 是一个高效且易于使用的 map 集合实现，使用红黑树来管理元素。它提供了许多常见的操作，例如并集、交集、差集等，同时还支持迭代器和回调函数。
 mergo：merge structs and maps in Golang
 
+中文库地址：https://studygolang.com/pkgdoc
+
 好用的框架
 gin
 gorm
 viper：一个配置解析库
 go-redis：一个Redis客户端库，提供了丰富的Redis API
 
+交叉编译：交叉编译是指在一个硬件平台生成另一个硬件平台的可执行文件。
+
+gRPC：远程过程调用。类比http，但比http效率高，A服务调B服务的方法
+反射：运行时动态获取变量的各种信息，如类型、值、方法。（编译时不知道）
