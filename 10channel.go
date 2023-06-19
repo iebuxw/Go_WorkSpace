@@ -197,8 +197,8 @@ func aa(){
 // 测试生产消费
 func testProducer() {
 	fmt.Println("testProducer start")
-	ch := make(chan int)
-	done := make(chan bool)
+	ch := make(chan int)            // 生产的数据放ch
+	done := make(chan bool)         // 完成标志
 
 	go producer(ch)
 	go consumer(ch, done)
