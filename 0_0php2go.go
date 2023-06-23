@@ -15,6 +15,10 @@ func main() {
 	ret := php2go.InArray("sss", slice1)
 	fmt.Println("php的In_array函数结果：", ret)
 	json := `{"name":"ddddd"}`
+	json2 := `{"name":["ddddd"]}`
+	json3 := `{"name":[{"ddddd":"dddggggggg"}]}`
 	value := gjson.Get(json, "name")
-	println("php的json_decode结果：", value.String())
+	fmt.Println("json的json_decode结果：", value.String())
+	fmt.Println("json2的json_decode结果：", gjson.Get(json2, "name"))
+	fmt.Println("json3的json_decode结果：", fmt.Sprintf("%#v", gjson.Get(json3, "name")))
 }
