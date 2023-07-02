@@ -278,7 +278,7 @@ go run main.go -redis 192.168.99.233:6379
     var a func(string) int
 
 defer
-defer是go中一种延迟调用机制，defer后面的函数只有在当前函数执行完毕后才能执行，通常用于释放资源
+defer是go中一种延迟调用机制，defer后面的函数只有在当前函数执行完毕后才能执行，通常用于释放资源。总结：函数的return或者panic前执行的代码
 defer遵循先进后出的原则，类似于栈的结构。
 
 代码目录：D:\go_code\Go_WorkSpace\
