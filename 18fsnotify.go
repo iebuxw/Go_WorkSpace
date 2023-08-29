@@ -29,7 +29,7 @@ func main() {
 					// 获取新文件完整路径
 					filePath, err := filepath.Abs(event.Name)
 					if err != nil {
-						log.Println(err)
+						log.Errorf("Error: %v", err)
 						continue
 					}
 
@@ -37,7 +37,7 @@ func main() {
 					cmd := exec.Command("php", "/opt/www/yiic", "handleevidnotice", "--file="+filePath)
 					err = cmd.Run()
 					if err != nil {
-						log.Println(err)
+						log.Errorf("Error: %v", err)
 						continue
 					}
 					log.Println("Executed shell command for", filePath)
@@ -51,7 +51,7 @@ func main() {
 		}
 	}()
 	// 监听当前目录
-	err = watcher.Add("D:\\Users\\xiaowang\\桌面\\tmp2\\web_client")
+	err = watcher.Add("/data/alarm")
 	if err != nil {
 		log.Fatal("err add dir: [%+v]", err)
 	}
