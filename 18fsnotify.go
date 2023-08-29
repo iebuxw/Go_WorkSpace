@@ -3,6 +3,8 @@ package main
 import (
 	"github.com/fsnotify/fsnotify"
 	log "github.com/sirupsen/logrus"
+	"os/exec"
+	"path/filepath"
 )
 
 func main() {
@@ -23,7 +25,23 @@ func main() {
 				}
 				// 打印监听事件
 				log.Print("event:", event)
+				if event.Op&fsnotify.Create == fsnotify.Create {
+					// 获取新文件完整路径
+					filePath, err := filepath.Abs(event.Name)
+					if err != nil {
+						log.Println(err)
+						continue
+					}
 
+					// 执行shell命令
+					cmd := exec.Command("php", "/opt/www/yiic", "handleevidnotice", "--file="+filePath)
+					err = cmd.Run()
+					if err != nil {
+						log.Println(err)
+						continue
+					}
+					log.Println("Executed shell command for", filePath)
+				}
 				// 可以启动新的goroutine或使用channel进行事件传递
 			case _, ok := <-watcher.Errors:
 				if !ok {
