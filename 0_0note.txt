@@ -289,9 +289,6 @@ GOPATH是指的Golang的工作目录
     查看：go env GOPATH
     D:\go_code
 改成linux：go env -w GOOS=linux
-压缩：
-    go build -ldflags="-s -w" monitor.go
-    "D:\Program Files\upx-4.0.1-win64\upx.exe" monitor
 
 
 代码的组织路径：
@@ -349,13 +346,6 @@ go path的使用
 go path的禁用
 	set GO111MODULE=on
 go mode和go path会有冲突，用go path的时候需要禁用掉go mode
-
-GOROOT：GOROOT就是Go的安装目录，（类似于java的JDK）
-GOPATH：GOPATH是我们的工作空间,保存go项目代码和第三方依赖包（老的方式：在gopath下建src，在src下建项目）
-    goWorkSpapce //GOPATH目录
-        -- bin //编译可执行文件存放的路径，可自动生成
-        -- pkg ///.a中间文件存放路径，可自动生成
-        -- src //源码路径
 
 数据类型转换：int64()直接转
     数字：
