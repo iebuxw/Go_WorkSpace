@@ -419,3 +419,16 @@ go-redis：一个Redis客户端库，提供了丰富的Redis API
 
 gRPC：远程过程调用。类比http，但比http效率高，A服务调B服务的方法
 反射：运行时动态获取变量的各种信息，如类型、值、方法。（编译时不知道）
+
+升级go：
+    1、卸载老的
+    2、下载msi安装
+    3、配置GOROOT：
+        系统变量：GOROOT    D:\Go
+    4、修改版本号：（原因是：IDEA / goland无法识别到GO语言SDK版本）
+    打开GO的安装目录下的src\runtime\internal\sys\zversion.go文件，添加一行（我的go版本是1.18.2）
+
+    const TheVersion = `go1.18.10`
+
+    然后重启IDEA /goland
+    这样再配置  goroot的时候就会自动识别到GO语言SDK版本了
