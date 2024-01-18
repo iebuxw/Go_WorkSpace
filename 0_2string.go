@@ -83,10 +83,14 @@ func main() {
 	sstr_r := []rune(sstr_z)
 	fmt.Println("中文截取后结果 =", string(sstr_r[1:8])) // 包含1不包含8
 
-	//implode
 	//explode
 	var9 := strings.Split("wok,kkd,ddo,kssss", ",")
 	fmt.Println("var9 =", var9)
+
+	//implode
+	slice := []string{"apple", "banana", "orange"}
+	result := strings.Join(slice, ",")
+	fmt.Println(result) // 输出：apple,banana,orange
 
 	//strtolower和strtoupper转大小写
 	fmt.Println(strings.ToLower("GOOOO"))
@@ -103,12 +107,13 @@ func main() {
 
 	//日期函数
 	//日期时间字符串
-
 	//获取当前时间戳
 	timeUnix := time.Now().Unix()
 	fmt.Println("当前时间为:", timeUnix)
+
 	//获取年月日 时分秒
 	fmt.Println("年月日时分秒：", time.Now().Format("2006-01-02 15:04:05")) // 当前时间
+
 	//sleep 2s
 	time.Sleep(time.Second * 2)
 
@@ -119,6 +124,7 @@ func main() {
 	tim, _ := time.Parse(timeTmeplate, timeStr)
 	chuo := tim.Unix()
 	fmt.Println("时间戳为：", chuo)
+
 	//时间戳转日期
 	tm := time.Unix(int64(chuo), 0)
 	timeStr2 := tm.Format(timeTmeplate)
