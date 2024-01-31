@@ -87,7 +87,6 @@ func main() {
 			uniqueSlice = append(uniqueSlice, v)
 		}
 	}
-
 	// 输出去重后的切片
-	fmt.Println(uniqueSlice)
+	fmt.Println("切片去重:", uniqueSlice)
 }
