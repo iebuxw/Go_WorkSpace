@@ -3,9 +3,10 @@ package main
 
 import "fmt"
 
-//main 函数是每一个可执行程序所必须包含的
-//指针类型名，可以看做是跟int、string平级的类型，在函数参数类型限制那里可以填写指针类型: *type
-//如：*int、*string、*Person，Person是定义的一个结构体类型名称
+//指针类型名，可以看做是跟int、string平级的类型，
+//语法：var var_name *var-type
+//var ip *int        /* 指向整型*/
+//var fp *float32    /* 指向浮点型 */
 func main() {
 	//定义指针
 	//指针赋值

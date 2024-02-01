@@ -7,7 +7,8 @@ func main() {
 	//Map 是一种无序的键值对的集合。1、统一类型；2、键值对；3、无序
 	var countryCapitalMap map[string]string /*创建集合，默认 map 是 nil */
 
-	//为什么var之后还要make，map是引用类型，在声明dataMap后并未初始化它，所以它的值是nil, 不指向任何内存地址。需要通过make方法分配确定的内存地址
+	//为什么var之后还要make，map是引用类型，在声明dataMap后并未初始化它
+	//所以它的值是nil, 不指向任何内存地址。需要通过make方法分配确定的内存地址
 	countryCapitalMap = make(map[string]string)
 
 	/* map插入key - value对,各个国家对应的首都 */
@@ -22,7 +23,7 @@ func main() {
 	}
 
 	/*查看元素在集合中是否存在 */
-	capital, ok := countryCapitalMap["American"] /*如果确定是真实的,则存在,否则不存在 */
+	capital, ok := countryCapitalMap["American"]
 	fmt.Println(capital)
 	fmt.Println(ok)
 	if ok {
@@ -32,7 +33,12 @@ func main() {
 	}
 
 	// 直接创建（推荐）
-	countryCapitalMap2 := map[string]string{"France": "Paris", "Italy": "Rome", "Japan": "Tokyo", "India": "New delhi"}
+	countryCapitalMap2 := map[string]string{
+		"France": "Paris",
+		"Italy": "Rome",
+		"Japan": "Tokyo",
+		"India": "New delhi",
+	}
 	//添加元素
 	countryCapitalMap2["aa"] = "bbbbbb"
 	countryCapitalMap2["aa"] = "bbbbbb222"
