@@ -2,46 +2,55 @@ package main
 
 import "fmt"
 
-// 接口就是定义规范
-// 不过貌似在代码中，interface部分就算注释了也能运行，interface和struct没有直接绑定
-type sw interface {
-	//定义交换机公共方法
-	login()
-	logout()
+// 定义数据库操作的接口
+type Database interface {
+	Connect()
+	Query(sql string) string
 }
 
-type Huawei struct {
-	//定义华为结构体
-	Name string
+// 实现 MySQL 数据库操作
+type MySQL struct {
+	Name  string
 }
 
-type Zte struct {
-	//定义中兴结构体
-	Name string
+func (m MySQL) Connect() {
+	fmt.Println("Connect to MySQL database")
 }
 
-func (c Huawei) login() {
-	//华为交换机登录的公共方法
-	fmt.Println(c.Name)
+func (m MySQL) Query(sql string) string {
+	return "MySQL: " + sql
 }
 
-func (c Zte) login() {
-	//zte交换机登录的公共方法
-	fmt.Println(c.Name)
+// 实现 PostgreSQL 数据库操作
+type PostgreSQL struct {
+	Name  string
 }
 
+func (p PostgreSQL) Connect() {
+	fmt.Println("Connect to PostgreSQL database")
+}
+
+func (p PostgreSQL) Query(sql string) string {
+	return "PostgreSQL: " + sql
+}
+
+//接口：定义规范
+//接口是隐式实现的，如果一个类型实现了一个接口定义的所有方法，那么它就自动地实现了该接口
+//类型断言
+//空接口
 func main() {
-	c := Huawei{
-		Name: "huawei",
-	}
-	c.login()
+	// 使用接口进行数据库操作
+	var db Database
 
-	d := Zte{
-		Name: "zte",
-	}
-	d.login()
+	// 使用 MySQL
+	db = MySQL{"mysql"}
+	db.Connect()
+	result := db.Query("SELECT * FROM users")
+	fmt.Println(result)
+
+	// 使用 PostgreSQL
+	db = PostgreSQL{"postgresql"}
+	db.Connect()
+	result = db.Query("SELECT * FROM users")
+	fmt.Println(result)
 }
-
-//万能数据类型  interface{}
-//怎么判断传进来的是什么类型？用类型断言，根据不同的类型进行不同的处理。作用：判断并转换空接口实际对应的类型
-//value, ok := s.(string)		//类型断言判断是否是string
