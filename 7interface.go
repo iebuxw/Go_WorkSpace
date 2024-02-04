@@ -37,7 +37,7 @@ func (p PostgreSQL) Query(sql string) string {
 //接口：定义规范
 //接口是隐式实现的，如果一个类型实现了一个接口定义的所有方法，那么它就自动地实现了该接口
 //类型断言
-//空接口
+//空接口：万能类型
 func main() {
 	// 使用接口进行数据库操作
 	var db Database
