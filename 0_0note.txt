@@ -208,6 +208,7 @@ a := [3][4]int{
 	variable_name := structure_variable_type { key1: value1, key2: value2..., keyn: valuen}
 
 	访问：结构体.成员名
+	     结构体指针.成员名
 
 语言切片（动态数组，可以扩充）
 	var slice1 []type = make([]type, len, capacity)
@@ -292,25 +293,6 @@ GOPATH是指的Golang的工作目录
 
 
 代码的组织路径：
-goWorkSpace     // goWorkSpace为GOPATH目录
-  -- bin
-     -- myApp1  // 编译生成
-     -- myApp2  // 编译生成
-  -- pkg
-  -- src
-     -- common 1
-     -- common 2
-     -- common utils ...
-     -- myApp1     // project1
-        -- models
-        -- controllers
-        -- others
-        -- main.go
-     -- myApp2     // project2
-        -- models
-        -- controllers
-        -- others
-        -- main.go
 
 不同的项目可以设置不同的GO111MODULE，例如Go_WorkSpace项目使用的go path，gindemo使用的go mod
 
