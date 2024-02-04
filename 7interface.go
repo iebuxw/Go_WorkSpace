@@ -53,4 +53,13 @@ func main() {
 	db.Connect()
 	result = db.Query("SELECT * FROM users")
 	fmt.Println(result)
+
+	//类型断言进行类型转换
+	var i interface{} = "Hello, World"
+	str, ok := i.(string)
+	if ok {
+		fmt.Printf("'%s' is a string\n", str)
+	} else {
+		fmt.Println("conversion failed")
+	}
 }

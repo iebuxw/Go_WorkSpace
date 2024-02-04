@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 //map类型名称： map[key_data_type]value_data_type
+//Map 最重要的一点是通过 key 来快速检索数据
 func main() {
 	//Map 是一种无序的键值对的集合。1、统一类型；2、键值对；3、无序
 	var countryCapitalMap map[string]string /*创建集合，默认 map 是 nil */

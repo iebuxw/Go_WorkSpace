@@ -5,6 +5,7 @@ import "fmt"
 
 //指针类型名，可以看做是跟int、string平级的类型，
 //语法：var var_name *var-type
+//指针主要是减少变量的拷贝，提供便捷性。php的引用传递是指针的简化版本
 //var ip *int        /* 指向整型*/
 //var fp *float32    /* 指向浮点型 */
 func main() {

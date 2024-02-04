@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//“动态数组”
+
 //声明切片
 //初始化切片
 //访问切片

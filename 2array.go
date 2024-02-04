@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+//固定长度、固定类型
 //声明数组
 //初始化数组
 //访问数组
