@@ -18,6 +18,9 @@ func main() {
 	str2 := "yyyyyaaa" //推荐
 	fmt.Println("str2= ", str2)
 
+	//``创建原始字符串字面量，类似php的EOF
+	fmt.Println(`dfdretgfgggg`)
+
 	//字符串连接
 	fmt.Println("Hello " + "World!")
 
