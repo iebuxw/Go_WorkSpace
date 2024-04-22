@@ -14,17 +14,16 @@ import (
 func main() {
 	//变量的定义
 	//var str string = "yyyyy"   	//方式一
-	//var str3 = "zzzzzz"			//方式二
-	str2 := "yyyyyaaa" //推荐
+	//var str3 = "zzzzzz"			//方式二，类型推导
+	str2 := "yyyyyaaa" 				//推荐，只能在函数内
 	fmt.Println("str2= ", str2)
 
 	//``创建原始字符串字面量，类似php的EOF
 	fmt.Println(`dfdretgfgggg`)
 
-	//字符串连接
+	//字符串连接用+
 	fmt.Println("Hello " + "World!")
 
-	// %d 表示整型数字，%s 表示字符串
 	var stockcode = 123
 	var enddate = "2020-12-31"
 	var targetUrl = fmt.Sprintf("Code=%d&endDate=%s", stockcode, enddate)

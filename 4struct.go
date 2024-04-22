@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+//特点：1、固定数量；2、键不能数字；3、值类型可以不同
 //区别于数组，结构体可以存储不类型的数据
 //结构体就像是类的一种简化形式
 //结构体是一种自定义数据类型
@@ -26,7 +27,6 @@ type Books3 struct {
 //方法和函数很相似，多了个接受类型，也就是上边的(var *Struct_Name)
 //加了*代表引用拷贝，没加就是值拷贝
 func (v *Books) getList() {
-	fmt.Println("title")
 	v.Title = "PHP语言"
 	fmt.Println("Title=", v.Title)
 }
@@ -49,7 +49,6 @@ func main() {
 		Subject: "Go 语言教程",
 		Book_id: 6495407,
 	}
-	fmt.Println(b)
 	//访问成员
 	fmt.Println(b.Title)
 

@@ -94,9 +94,9 @@
 	*	指针变量。
 
 声明变量
-	var a string = "Runoob" //指定类型
-	var v_name = value //自行判断类型
-	intVal := 1 相当于：var intVal int; intVal =1 //使用:=
+	var a string = "Runoob"     //指定类型
+	var v_name = value          //自行判断类型
+	intVal := 1                 //推荐
 
 常量
     可以放main外面定义，也可以在main或者其他函数里定义
@@ -250,16 +250,12 @@ go没有继承概念
     2、貌似要放在$GO_PATH的src下，并且文件夹名、文件名、包名一致？// 包名通常跟文件名保持一致
     3、引入时候按路径引入即可
 
-编译可执行文件：go build -o my.exe my.go
-    1、编译必须是main包
-    3、-o是换exe的路径、名称
-
 go传参数启动服务
 go run main.go -redis 192.168.99.233:6379
 
 
 类型转换
-    1、type(v)
+    1、T(v)                      //推荐，如：int64()、string()
     2、str := strconv.Itoa(12)
     3、go中的类型判断则是判断一个变量是否属于某一种类型
         var a interface{} = 10
@@ -303,15 +299,13 @@ go mod的使用
         set GOPATH=D:\go_code                       // 第三方库
         set GO111MODULE=on                          // 开启go mod
         set GOPROXY=https://goproxy.io,direct       // 配置代理
+        set GO111MODULE=on                          // 开启go mod
 
-	1、set GO111MODULE=on
-	2、在项目下 go mod init Go_WorkSpace
-	    或者 在main.go同级目录执行go mod init
-	    如果报错：go: cannot determine module path for source directory D:\go_code\fsnotify (outside GOPATH, module path must be specified)
-	    解决：加上项目路径就行
-	3、直接写代码
+	1、建目录Go_WorkSpace
+	2、在目录下 go mod init Go_WorkSpace
+	3、在Go_WorkSpace目录中新建 main.go文件就可以开始了
 	4、go mod download  //拉取所有模块
-	   go mod tidy //拉取缺少的模块，移除不用的模块。
+	   go mod tidy      //拉取缺少的模块，移除不用的模块
 
     新增某个依赖：go get <module-path>
     更新依赖到最新版本：go get -u <module-path>  // -u代表update
