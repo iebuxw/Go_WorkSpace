@@ -18,7 +18,7 @@ type Books struct { //推荐定义方式
 }
 
 type Books3 struct {
-	Books            // 继承
+	Books            // 继承，拥有Books所有属性
 	Page  int
 	page2 string
 }
