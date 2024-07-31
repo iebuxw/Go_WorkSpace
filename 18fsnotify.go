@@ -34,7 +34,7 @@ func main() {
 					}
 
 					// 执行shell命令
-					cmd := exec.Command("php", "/opt/www/yiic", "handleevidnotice", "--file="+filePath)
+					cmd := exec.Command("php", "/opt/www/yiic", "iothandleevidnotice", "--file="+filePath)
 					err = cmd.Run()
 					if err != nil {
 						log.Errorf("Error: %v", err)
