@@ -13,6 +13,16 @@
     go env -w GOOS=linux                          // 切换平台
         go env -w GOOS=windows
 
+        切换成arm：
+            go env -w GOOS=linux         // 目标操作系统
+            go env -w GOARCH=arm64       // 目标处理器的架构
+        切换成windows：
+            go env -w GOOS=windows
+            go env -w GOARCH=amd64
+
+        生成arm的包：go build -ldflags="-s -w"  -o monitor 18fsnotify.go
+        然后压缩就行了
+
 代码组织
     go的项目是由包来组织的
     go的每一个文件要属于一个包，不能单独存在
