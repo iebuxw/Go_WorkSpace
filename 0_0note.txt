@@ -395,6 +395,10 @@ gin
 gorm
 viper：一个配置解析库
 go-redis：一个Redis客户端库，提供了丰富的Redis API
+    github.com/go-redis/redis/v8
+日志用：go.uber.org/zap
+验证用：github.com/asaskevich/govalidator
+    其中包含isIp等函数
 
 交叉编译：交叉编译是指在一个硬件平台生成另一个硬件平台的可执行文件。
 
