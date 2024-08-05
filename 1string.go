@@ -13,10 +13,19 @@ import (
 //make的用法：make(type, length, capacity)  //capacity就是容量，警戒值
 func main() {
 	//变量的定义
-	//var str string = "yyyyy"   	//方式一
-	//var str3 = "zzzzzz"			//方式二，类型推导
-	str2 := "yyyyyaaa" 				//推荐，只能在函数内
+	//var str string   				//方式一，没有初始化就是零值
+	//var str string = "yyyyy"   	//方式二，指定类型
+	//var str3 = "zzzzzz"			//方式三，类型推导
+	str2 := "yyyyyaaa" //推荐，只能在函数内，不能声明全局变量
 	fmt.Println("str2= ", str2)
+
+	// 多变量声明
+	//var str, str3 int = 10, 20	// 指定类型
+	//var str, str3 = 10, 20		// 类型推导
+	/*var(
+		str3 int = 10				// 指定类型
+		str = 10					// 类型推导
+	)*/
 
 	//``创建原始字符串字面量，类似php的EOF
 	fmt.Println(`dfdretgfgggg`)
@@ -53,10 +62,10 @@ func main() {
 	fmt.Println("var2 len= ", len(var2))
 
 	//字符串转整数intval
-	int1, error2 := strconv.Atoi(var2)        //方式一
+	int1, error2 := strconv.Atoi(var2) //方式一
 	//方式二10代表基准是10进制，0代表转成int
 	var11, _ := strconv.ParseInt(var2, 10, 0)
-	fmt.Println(int1, error2, var11)          //方式三 sprintf
+	fmt.Println(int1, error2, var11) //方式三 sprintf
 
 	//整数转字符串
 	var4 := 1000
