@@ -8,7 +8,6 @@ import (
 func function_name( [parameter list] ) [return_types] {
    函数体
 }
-
 不支持默认参数
 */
 func main() {
@@ -23,6 +22,7 @@ func main() {
 	fmt.Printf( "最大值是 : %d\n", ret )
 }
 
+// 如果只有一个返回值可以省略括号
 func max(num1, num2 int) int {
 	/* 声明局部变量 */
 	var result int

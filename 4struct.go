@@ -23,6 +23,21 @@ type Books3 struct {
 	page2 string
 }
 
+/**
+func (接收者变量 接收者类型) 方法名(参数列表) (返回参数) {
+    函数体
+}
+接收者变量：接收者变量使用接收者类型名称首字母的小写
+	例如Person类型的接收者变量应该命名为p
+接收者类型：可以是指针类型和非指针类型
+方法名、参数列表、返回参数：具体格式与函数定义相同
+
+什么时候该用指针接收者类型呢？
+	1.需要修改接收者中的值
+	2.接收者时拷贝代价比较大的对象
+	3.保证一致性，如果有某个方法使用了指针接收者，那么其他的方法也应该使用指针接收者
+ */
+
 //func (var *Struct_Name) FuncName( var0, var1... )  return type {}
 //方法和函数很相似，多了个接受类型，也就是上边的(var *Struct_Name)
 //加了*代表引用拷贝，没加就是值拷贝
@@ -42,7 +57,7 @@ func printBook(book *Books) {
 }
 
 func main() {
-	// 创建一个新的结构体，推荐定义方式
+	// 推荐初始化方式
 	b := Books{
 		Title:   "Go 语言",
 		Author:  "www.runoob.com",
@@ -54,9 +69,7 @@ func main() {
 
 	//也可以用简化形式
 	b2 := Books{"Go 语言", "www.runoob.com", "Go 语言教程", 6495407}
-	fmt.Println(b2)
-	fmt.Printf("22%v\n", b2)
-	fmt.Printf("333333%#v\n", b2) //打印结构体的详细信息
+	fmt.Printf("%#v\n", b2) //打印结构体的详细信息
 
 	//执行结构体方法
 	(&b).getList()
@@ -76,7 +89,7 @@ func main() {
 	err := json.Unmarshal(jsonStr, &jsonDec)
 	fmt.Printf("json decode=%#v err=%s\n", jsonDec, err)
 
-	//结构体指针
+	//结构体指针。跟new(Books3)是等价的，都是定义结构体，并获取指针
 	testp := &Books3{}
 	//var testp *Books3 = new(Books3)  //跟上面的等价
 	testp.Page = 10 // 等价 (*testp).Page = 10
@@ -84,5 +97,4 @@ func main() {
 
 	/* 打印 Book 信息 */
 	printBook(&b)
-
 }
