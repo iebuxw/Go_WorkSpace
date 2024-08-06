@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// 常量只能是布尔、数字和字符串
 const (
 	BEIJING  = 0
 	SHANGHAI = 1

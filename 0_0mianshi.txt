@@ -29,6 +29,7 @@
     2、每个 case 必须是一个通道操作，要么是发送要么是接收
     3、select 随机执行一个可运行的 case。如果没有 case 可运行，它将阻塞
     4、存在 default 语句，select 将不会阻塞，但是存在 default 会影响性能
+    5、同时只能执行一个case，一旦一个case开始执行，select就会暂停对其他case的检查，直到当前case执行完毕
 
     使用场景：
         1、竞争选举

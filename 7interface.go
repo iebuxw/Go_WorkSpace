@@ -34,7 +34,7 @@ func (p PostgreSQL) Query(sql string) string {
 	return "PostgreSQL: " + sql
 }
 
-//接口：定义规范
+//接口：定义规范。把所有的具有共性的方法定义在一起
 //接口是隐式实现的，如果一个类型实现了一个接口定义的所有方法，那么它就自动地实现了该接口
 //类型断言
 //空接口：万能类型
