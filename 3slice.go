@@ -13,11 +13,11 @@ import "fmt"
 //切片类型名：[]type
 func main() {
 	//定义切片1
-	//声明一个未指定大小的数组来定义切片（推荐）
+	//声明一个未指定大小的数组来定义切片（推荐，不过自动扩容会有性能问题）
 	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
 
 	//定义切片2
-	slice2 := make([]int, 2)
+	slice2 := make([]int, 2, 10)// 2是长度，10是容量
 	//切片赋值
 	slice2[0] = 1
 	slice2[1] = 2
@@ -46,7 +46,7 @@ func main() {
 	fmt.Println("a2 == ", a2)
 
 	//复制，避免引用赋值
-	a3 := make([]int, 4)
+	a3 := make([]int, 4, 10)
 	copy(a3, a2)
 	a3[2] = 10
 	fmt.Println("a3 == ", a3)

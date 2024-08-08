@@ -33,7 +33,7 @@ func main() {
 		fmt.Println("American 的首都不存在")
 	}
 
-	// 直接创建（推荐）
+	// 直接创建（推荐，不过自动扩容会有性能问题）
 	countryCapitalMap2 := map[string]string{
 		"France": "Paris",
 		"Italy": "Rome",

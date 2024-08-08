@@ -22,7 +22,7 @@ func main() {
 	fmt.Println("切片个数:", len(slice))
 
 	// array_unshift
-	slice = append([]int{100}, slice...)
+	slice = append([]int{100}, slice...) // ...展开一个切片的所有元素
 	fmt.Println("头部加一个元素:", slice)
 
 	// array_shift

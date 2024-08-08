@@ -11,8 +11,6 @@
             go build -ldflags="-s -w" monitor.go
             "D:\Program Files\upx-4.0.1-win64\upx.exe" monitor
     go env -w GOOS=linux                          // 切换平台
-        go env -w GOOS=windows
-
         切换成arm：
             go env -w GOOS=linux         // 目标操作系统
             go env -w GOARCH=arm64       // 目标处理器的架构
@@ -20,7 +18,7 @@
             go env -w GOOS=windows
             go env -w GOARCH=amd64
 
-        生成arm的包：go build -ldflags="-s -w"  -o monitor 18fsnotify.go
+        生成arm的包：go build -ldflags="-s -w" -o monitor 18fsnotify.go
         然后压缩就行了
 
 代码组织
@@ -40,7 +38,7 @@
         %q：如果是字符串会加引号，看得清楚
         %v      相应值的默认格式。            Printf("%v", people)   {zhangsan}，
         %+v     打印结构体时，会添加字段名     Printf("%+v", people)  {Name:zhangsan}
-        %#v     相应值的Go语法表示            Printf("%#v", people)   main.Human{Name:"zhangsan"}
+        %#v     相应值的Go语法表示(推荐)      Printf("%#v", people)   main.Human{Name:"zhangsan"}
         %T      相应值的类型的Go语法表示       Printf("%T", people)   main.Human
         %%      字面上的百分号，并非值的占位符  Printf("%%")            %
 
@@ -83,8 +81,6 @@
     17/5，结果是3，小数部分被舍弃了
 
     同一个包下有两个文件，两个文件不能有相同的函数名
-
-    文件不能含有test，否则无法run
 
 局部变量(函数内)：在函数体内声明的变量称之为局部变量
 	//这种不带声明格式的(:=)只能在函数体中出现（也就是只能声明局部变量）
@@ -147,7 +143,7 @@ for循环
 	func f(i int, j int, k int, s string, t string) { /* ... */ }
 
 	//返回单个
-	func max(num1, num2 int) int {
+	func max(num1, num2 int) int {// 一个返回值，括号可以省略
 	   return num1 + num2
 	}
 
@@ -250,7 +246,7 @@ go没有继承概念
      要点:
         1、只能放指定数据类型
         2、放满了不能放
-     锁：
+     阻塞：
         1、放满了没人取
         2、取时候是空的
         3、关闭的话读取是不会阻塞的
@@ -295,8 +291,6 @@ GOROOT是指的Golang的安装目录
 GOPATH是指的Golang的工作目录
     查看：go env GOPATH
     D:\go_code
-改成linux：go env -w GOOS=linux
-
 
 代码的组织路径：
 
@@ -307,7 +301,6 @@ go mod的使用
 	参考命令，也可以编辑器里操作：
         set GOROOT=D:\Program Files\Go              // go安装目录
         set GOPATH=D:\go_code                       // 第三方库
-        set GO111MODULE=on                          // 开启go mod
         set GOPROXY=https://goproxy.io,direct       // 配置代理
         set GO111MODULE=on                          // 开启go mod
 

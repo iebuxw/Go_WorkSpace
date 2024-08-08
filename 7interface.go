@@ -37,7 +37,7 @@ func (p PostgreSQL) Query(sql string) string {
 //接口：定义规范。把所有的具有共性的方法定义在一起
 //接口是隐式实现的，如果一个类型实现了一个接口定义的所有方法，那么它就自动地实现了该接口
 //类型断言
-//空接口：万能类型
+//空接口：万能类型，可以接受任何数据
 func main() {
 	// 使用接口进行数据库操作
 	var db Database
@@ -62,4 +62,12 @@ func main() {
 	} else {
 		fmt.Println("conversion failed")
 	}
+
+	// 空接口可以接受任何数据，元素看起来是字符串或者int，但类型是空接口
+	mixedData := []interface{}{"foobar", 123456}   // 往切片里放不同类型的元素
+	fmt.Println(mixedData)
+
+	mixedData2 := make(map[string]interface{})     // 往map里放不同类型的元素
+	mixedData2["username"] = "YamiOdymel"
+	mixedData2["time"]     = 123456
 }

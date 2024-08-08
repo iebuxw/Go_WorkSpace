@@ -16,7 +16,7 @@ func main() {
 	//var str string   				//方式一，没有初始化就是零值
 	//var str string = "yyyyy"   	//方式二，指定类型
 	//var str3 = "zzzzzz"			//方式三，类型推导
-	str2 := "yyyyyaaa" //推荐，只能在函数内，不能声明全局变量
+	str2 := "yyyyyaaa" 				//方式四，推荐，只能在函数内，不能声明全局变量
 	fmt.Println("str2= ", str2)
 
 	// 多变量声明
