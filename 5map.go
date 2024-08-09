@@ -5,6 +5,7 @@ import "fmt"
 //map类型名称： map[key_data_type]value_data_type
 //Map 最重要的一点是通过 key 来快速检索数据
 func main() {
+	//方式一
 	//Map 是一种无序的键值对的集合。1、统一类型；2、键值对；3、无序
 	var countryCapitalMap map[string]string /*创建集合，默认 map 是 nil */
 
@@ -33,7 +34,11 @@ func main() {
 		fmt.Println("American 的首都不存在")
 	}
 
-	// 直接创建（推荐，不过自动扩容会有性能问题）
+	//方式二
+	countryCapitalMap4 := make(map[string]string, 10)
+	countryCapitalMap4["France"] = "巴黎"
+
+	//方式三，直接创建（推荐，不过自动扩容会有性能问题）
 	countryCapitalMap2 := map[string]string{
 		"France": "Paris",
 		"Italy": "Rome",
