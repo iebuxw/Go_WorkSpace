@@ -39,6 +39,7 @@ func main() {
 	countryCapitalMap4["France"] = "巴黎"
 
 	//方式三，直接创建（推荐，不过自动扩容会有性能问题）
+	//这时字面量（Literals）的方式，字面量就是固定值：代码文字表面上的意义的常量
 	countryCapitalMap2 := map[string]string{
 		"France": "Paris",
 		"Italy": "Rome",

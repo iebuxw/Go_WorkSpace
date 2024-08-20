@@ -34,6 +34,9 @@ func main() {
 
 	//字符串连接用+
 	fmt.Println("Hello " + "World!")
+	str_812 := "Hello " +             // 换行的话加号得写在后面
+		"World!"
+	fmt.Println(str_812)
 
 	var stockcode = 123
 	var enddate = "2020-12-31"
