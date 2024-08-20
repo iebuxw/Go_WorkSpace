@@ -4,6 +4,7 @@ import "fmt"
 
 // 常量只能是布尔、数字和字符串
 // 常量不能用 := 语法声明
+// 格式：const identifier [type] = value
 const (
 	BEIJING  = 0
 	SHANGHAI = 1

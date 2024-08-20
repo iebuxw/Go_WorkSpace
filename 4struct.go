@@ -24,8 +24,12 @@ type Books3 struct {
 }
 
 /**
+方法：
 func (接收者变量 接收者类型) 方法名(参数列表) (返回参数) {
     函数体
+}
+func (variable_name variable_data_type) function_name() [return_type]{
+   函数体
 }
 接收者变量：接收者变量使用接收者类型名称首字母的小写
 	例如Person类型的接收者变量应该命名为p

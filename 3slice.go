@@ -4,7 +4,7 @@ import "fmt"
 
 //“动态数组”
 
-//声明切片
+//声明切片    var identifier []type
 //初始化切片
 //访问切片
 //切片截取
