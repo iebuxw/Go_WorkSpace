@@ -21,7 +21,7 @@ type SubStruct struct {
 func main() {
 	// 创建子结构体实例
 	sub := SubStruct{
-		BaseStruct: BaseStruct{
+		BaseStruct: BaseStruct{// 匿名结构体属性名就是BaseStruct
 			field1: "Inherited field",
 		},
 		field2: 10,

@@ -19,10 +19,6 @@ type Dog struct {
 	*Animal        //通过嵌套匿名结构体实现继承
 }
 
-func (d *Dog) wang() {
-	fmt.Printf("%s会汪汪汪~\n", d.name)
-}
-
 func main() {
 	d1 := &Dog{
 		Feet: 4,
@@ -31,7 +27,7 @@ func main() {
 		},
 	}
 
-	d1.move()
+	d1.move()            // golang替我们做了相关的优化，不需要d1.Animal.move()
 	d1.Animal.move()     // 显示调用也可以
 }
 
