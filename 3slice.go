@@ -24,6 +24,7 @@ func main() {
 	fmt.Println(slice2)
 
 	//切片截取，数组也可以这样截取
+	//注意这种截取会共享底层数组，number2的改变会引起number的改变
 	number2 := numbers[1:6] // 索引1(包含) 到索引 6(不包含)
 	number3 := numbers[:3]
 	number4 := numbers[3:]
@@ -46,10 +47,24 @@ func main() {
 	fmt.Println("a2 == ", a2)
 
 	//复制，避免引用赋值
+	/*使用make和copy来创建切片的深拷贝，
+	  或者使用append并确保它超出原始切片的容量来触发新的底层数组的分配
+	*/
 	a3 := make([]int, 4, 10)
 	copy(a3, a2)
 	a3[2] = 10
 	fmt.Println("a3 == ", a3)
 
+	/**
+		切片不要和nil比较，判断切片是否为空要用len(s) == 0来判断
+		var s1 []int         //len(s1)=0;cap(s1)=0;s1==nil
+		s2 := []int{}        //len(s2)=0;cap(s2)=0;s2!=nil
+		s3 := make([]int, 0) //len(s3)=0;cap(s3)=0;s3!=nil
+	 */
+	s3 := make([]int, 0)
+	//if s3 == nil {// 这种判断有问题的
+	if len(s3) == 0 {
+		fmt.Println("fffff")
+	}
 
 }
