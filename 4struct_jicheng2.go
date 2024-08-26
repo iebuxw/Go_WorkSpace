@@ -21,6 +21,7 @@ type SubStruct struct {
 func main() {
 	// 创建子结构体实例
 	sub := SubStruct{
+		//BaseStruct{// 如果没有field2，BaseStruct可以省略，否则不能省
 		BaseStruct: BaseStruct{// 匿名结构体属性名就是BaseStruct
 			field1: "Inherited field",
 		},

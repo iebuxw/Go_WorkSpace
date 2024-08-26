@@ -62,7 +62,8 @@ func main() {
 		s3 := make([]int, 0) //len(s3)=0;cap(s3)=0;s3!=nil
 	 */
 	s3 := make([]int, 0)
-	//if s3 == nil {// 这种判断有问题的
+	//s3这个切片并不是 nil，而是指向了一个长度和容量都为0的底层数组
+	//if s3 == nil {// 这种判断有问题
 	if len(s3) == 0 {
 		fmt.Println("fffff")
 	}

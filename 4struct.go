@@ -60,6 +60,17 @@ func printBook(book *Books) {
 	fmt.Printf("Book title : %s\n", book.Title) //指针.属性也是可以的
 }
 
+type Member struct {
+	Id     int
+	Name   string
+	Email  string
+	Gender int
+	Age    int
+}
+func (m *Member)setName(name string){//将Member改为*Member
+	m.Name = name
+}
+
 func main() {
 	// 推荐初始化方式
 	b := Books{
@@ -101,4 +112,9 @@ func main() {
 
 	/* 打印 Book 信息 */
 	printBook(&b)
+
+	// 有点像php的类了
+	m := Member{}
+	m.setName("小明")
+	fmt.Println(m.Name)//小明
 }
