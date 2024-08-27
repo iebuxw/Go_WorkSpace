@@ -13,10 +13,18 @@ import "fmt"
 //切片类型名：[]type
 func main() {
 	//定义切片1
-	//声明一个未指定大小的数组来定义切片（推荐，不过自动扩容会有性能问题）
-	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+	//声明后需要make初始化的类型：切片、map、chan
+	var countryCapitalSlice []string
+	countryCapitalSlice = make([]string, 2, 10)
+	countryCapitalSlice[0] = "ddddd"
+	fmt.Println(countryCapitalSlice)
 
 	//定义切片2
+	//声明一个未指定大小的数组来定义切片（自动扩容会有性能问题）
+	//这时字面量（Literals）的方式
+	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+
+	//定义切片3(推荐)
 	slice2 := make([]int, 2, 10)// 2是长度，10是容量
 	//切片赋值
 	slice2[0] = 1
@@ -67,5 +75,12 @@ func main() {
 	if len(s3) == 0 {
 		fmt.Println("fffff")
 	}
+
+	var s []int
+	var ss = []int{}
+	fmt.Println(len(s),len(ss))//0,0
+	fmt.Println(s == nil) //true
+	fmt.Println(ss == nil)//false
+
 
 }

@@ -94,6 +94,7 @@
 	var c = 111
 
 数据类型
+    不同类型之间的赋值操作，需要显示转换，且不同类型之间不能使用比较运算符
 
 特殊运算符
 	&	返回变量存储地址
@@ -383,6 +384,7 @@ mapset 是一个高效且易于使用的 map 集合实现，使用红黑树来�
 mergo：merge structs and maps in Golang
 
 中文库地址：https://studygolang.com/pkgdoc
+golang教程 + 库地址：https://juejin.cn/post/7055217931344429093
 
 好用的框架
 gin

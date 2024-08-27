@@ -34,11 +34,11 @@ func main() {
 		fmt.Println("American 的首都不存在")
 	}
 
-	//方式二
+	//方式二（推荐）
 	countryCapitalMap4 := make(map[string]string, 10)
 	countryCapitalMap4["France"] = "巴黎"
 
-	//方式三，直接创建（推荐，不过自动扩容会有性能问题）
+	//方式三，直接创建（自动扩容会有性能问题）
 	//这时字面量（Literals）的方式，字面量就是固定值：代码文字表面上的意义的常量
 	countryCapitalMap2 := map[string]string{
 		"France": "Paris",
@@ -59,5 +59,14 @@ func main() {
 	countryCapitalMap3["aa"] = "bbbbbb2"
 	fmt.Println(countryCapitalMap2)
 	fmt.Println(countryCapitalMap3)
+
+	//map里的元素不能取址
+	//a := &countryCapitalMap3["aa"]//错误
+
+	//判断map是否为空
+	//if countryCapitalMap3 == nil {// 这种判断有问题
+	if len(countryCapitalMap3) == 0 {
+		fmt.Println("fffff")
+	}
 
 }

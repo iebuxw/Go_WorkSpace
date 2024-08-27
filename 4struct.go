@@ -117,4 +117,11 @@ func main() {
 	m := Member{}
 	m.setName("小明")
 	fmt.Println(m.Name)//小明
+
+	//相同数据类型的成员也可以写在同一行
+	type User struct{
+		ID,Name,Email string
+		Age           int
+	}
+	fmt.Println(new(User))
 }
