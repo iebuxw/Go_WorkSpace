@@ -36,11 +36,11 @@
         %s和%d和php一样的
         %t：布尔值
         %q：如果是字符串会加引号，看得清楚
-        %v      相应值的默认格式。            Printf("%v", people)   {zhangsan}，
-        %+v     打印结构体时，会添加字段名     Printf("%+v", people)  {Name:zhangsan}
-        %#v     相应值的Go语法表示(推荐)      Printf("%#v", people)   main.Human{Name:"zhangsan"}
-        %T      相应值的类型的Go语法表示       Printf("%T", people)   main.Human
-        %%      字面上的百分号，并非值的占位符  Printf("%%")            %
+        %v      相应值的默认格式。            fmt.Printf("%v", people)   {zhangsan}，
+        %+v     打印结构体时，会添加字段名     fmt.Printf("%+v", people)  {Name:zhangsan}
+        %#v     相应值的Go语法表示(推荐)      fmt.Printf("%#v", people)   main.Human{Name:"zhangsan"}
+        %T      相应值的类型的Go语法表示       fmt.Printf("%T", people)   main.Human
+        %%      字面上的百分号，并非值的占位符  fmt.Printf("%%")            %
 
 报错相关
 	报错：no required module provides package hello.go: go.mod file not found in current directory or any parent directory; see 'go help modules'
