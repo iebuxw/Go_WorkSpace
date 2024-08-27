@@ -21,7 +21,7 @@ func main() {
 	// 尝试直接使用 b1（错误）
 	// var g Goods = b1 // 这会导致编译错误
 
-	// 正确的做法是使用指针
+	// 正确的做法是使用指针，因为最终实现Goods接口的是结构体指针
 	var g Goods = &b1 // 这不会导致编译错误
 	fmt.Println(g.GetPrice()) // 输出: 10
 }
