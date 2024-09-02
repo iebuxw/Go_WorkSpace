@@ -15,7 +15,7 @@
     由于有这个特性，for 循环里面如果开协程，不要直接把 a 或者 b 的地址传给协程。
     解决办法：在每次循环时，创建一个临时变量。
 
-4、4、go defer，多个 defer 的顺序
+4、go defer，多个 defer 的顺序
     先入后出，理解为栈
 
 5、能介绍下 rune 类型吗？
@@ -32,6 +32,7 @@
     3、select 随机执行一个可运行的 case。如果没有 case 可运行，它将阻塞
     4、存在 default 语句，select 将不会阻塞，但是存在 default 会影响性能
     5、同时只能执行一个case，一旦一个case开始执行，select就会暂停对其他case的检查，直到当前case执行完毕
+    6、select执行完某个case，会立即退出select块
 
     使用场景：
         1、竞争选举

@@ -135,7 +135,7 @@ func main() {
 
 	//日期转时间戳
 	timeStr := "2022-02-01 10:45:15"
-	//要转换成时间日期的格式模板（go诞生时间，模板必须是这个时间）
+	//要转换成时间日期的格式模板（模板必须是这个时间，含义：Y-m-d H:i:s，不是go诞生时间）
 	timeTmeplate := "2006-01-02 15:04:05"
 	tim, _ := time.Parse(timeTmeplate, timeStr)
 	chuo := tim.Unix()
