@@ -20,7 +20,7 @@ func main() {
 	fmt.Println(countryCapitalSlice)
 
 	//定义切片2
-	//声明一个未指定大小的数组来定义切片（自动扩容会有性能问题）
+	//声明一个未指定大小的数组来定义切片（自动扩容会有性能问题，所以最好指定合理容量）
 	//这时字面量（Literals）的方式
 	numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
 
@@ -82,5 +82,7 @@ func main() {
 	fmt.Println(s == nil) //true
 	fmt.Println(ss == nil)//false
 
-
+	// 会panic，类似js的Cannot read property ... of undefined
+	s4 := make([]int, 0, 4)
+	s4[0] = 1
 }

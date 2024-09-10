@@ -22,7 +22,9 @@ func main() {
 	// 创建子结构体实例
 	sub := SubStruct{
 		//BaseStruct{// 如果没有field2，BaseStruct可以省略，否则不能省
-		BaseStruct: BaseStruct{// 匿名结构体属性名就是BaseStruct
+		/**匿名字段说法并不是说没有字段名，而是默认会采用类型名作为字段名
+		所以底下匿名结构体属性名就是BaseStruct*/
+		BaseStruct: BaseStruct{
 			field1: "Inherited field",
 		},
 		field2: 10,

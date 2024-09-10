@@ -27,7 +27,9 @@ func main() {
 		},
 	}
 
+	//匿名字段可以直接省略
 	d1.move()            // golang替我们做了相关的优化，不需要d1.Animal.move()
+	//匿名字段默认使用类型名作为字段名
 	d1.Animal.move()     // 显示调用也可以
 }
 

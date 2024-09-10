@@ -19,6 +19,14 @@ func main() {
 		fmt.Println(i, s)
 	}
 
+	// for range会对slice元素值一次拷贝到item。更改item中的值不会改变原slice
+	// 而且item的地址是永远不变的
+	slice := []int{1,2,3}
+	for _, item := range slice {
+		item++
+	}
+	fmt.Println(slice)
+
 	// while
 	sum2 := 1
 	for sum2 < 1000 {
