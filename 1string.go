@@ -117,7 +117,8 @@ func main() {
 	fmt.Println(strings.ToUpper("dssaaa"))
 
 	//trim
-	fmt.Printf("str = %q", strings.TrimSpace("  ds   saaa    "))
+	fmt.Printf("str = %q", strings.Trim("[ds   saaa]", "[]"))// 去除[和]
+	fmt.Printf("str = %q", strings.TrimSpace("  ds   saaa    "))// 去除两边空格
 
 	//startWith，是否已什么开头
 	fmt.Printf("res = %t", strings.HasPrefix("asodddddd", "aso"))

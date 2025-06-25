@@ -88,6 +88,7 @@ func main() {
 
 	//执行结构体方法
 	(&b).getList()
+	//b.getList()   这样也可以
 	fmt.Println("&b.Title=", b.Title) //b也改变了(PHP语言)
 
 	b.getList2()
