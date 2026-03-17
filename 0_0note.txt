@@ -46,6 +46,7 @@
 gin框架打印：
     log.Println("[控制台调试] 订单信息：", req)
     fmt.Println("[控制台调试] 订单信息：", req)
+    Logger.Infof("AuthRequestConsole param: %#v", data)
 
 报错相关
 	报错：no required module provides package hello.go: go.mod file not found in current directory or any parent directory; see 'go help modules'
