@@ -43,10 +43,32 @@
         %%      字面上的百分号，并非值的占位符  fmt.Printf("%%")            %
 
 
+gin框架相关
+
 gin框架打印：
     log.Println("[控制台调试] 订单信息：", req)
     fmt.Println("[控制台调试] 订单信息：", req)
     Logger.Infof("AuthRequestConsole param: %#v", data)
+
+临时万能数据：
+	formData := make(map[string]string)
+	var extData interface{} = nil
+
+传参：
+	切片：  []IotVisitor
+	结构体：*IotVisitor			// 传指针
+
+本地gin启动项目
+	go env -w GOOS=windows
+    go env -w GOARCH=amd64
+
+	go mod tidy
+	go run .
+
+热加载用fresh
+
+gin框架打包：
+        go build -o [包名] .
 
 报错相关
 	报错：no required module provides package hello.go: go.mod file not found in current directory or any parent directory; see 'go help modules'
