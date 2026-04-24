@@ -44,6 +44,19 @@
 
 
 gin框架相关
+构建二进制：
+	go env -w GOOS=linux       // 已设置则忽略
+	go build -o user .
+
+	查看变量：
+		go env GOOS
+
+	切换成arm：
+		go env -w GOOS=linux         // 目标操作系统
+		go env -w GOARCH=arm64       // 目标处理器的架构
+    切换成windows：
+		go env -w GOOS=windows
+		go env -w GOARCH=amd64
 
 gin框架打印：
     log.Println("[控制台调试] 订单信息：", req)
